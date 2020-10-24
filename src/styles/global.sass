@@ -1,0 +1,89 @@
+@import 'https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap&text=ched.dev'
+@import 'https://fonts.googleapis.com/css2?family=Bitter&family=Economica&display=swap'
+
+$brand-primary: teal // brown, darkolivegreen, olivedrab, teal
+$brand-secondary: cyan
+$brand-gradient: linear-gradient(115deg, $brand-primary 20%, cyan)
+// colors: floralwhite
+$sidebar-width: 250px
+
+html
+  background-color: black
+html, body, #__next, .main-layout
+  height: 100%
+body
+  margin: 0
+  padding: 10px
+  background: $brand-gradient
+*
+  box-sizing: border-box
+
+.main-layout
+  display: flex
+.main-header
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  padding: 1.6rem 1.6rem 0 1.6rem
+  margin-right: 10px
+  background-color: white
+.main-name
+  font-family: 'Zilla Slab', cursive
+  font-size: 3rem
+  color: white
+  background-color: $brand-primary
+  text-decoration: none
+  padding: 0 0.6rem
+.main-nav
+  position: relative
+  display: flex
+  flex-direction: column
+  margin: 2rem 1rem 0 1rem
+  text-indent: 0.4rem
+  a
+    font-family: 'Economica', sans-serif
+    display: inline-flex
+    font-size: 2rem
+    color: black
+    text-transform: lowercase
+    text-decoration: none
+    border-bottom: solid 1px black
+    margin-bottom: 0.6rem
+.main-logo
+  display: block
+  height: 200px
+  img
+    height: 100%
+
+
+.content-container
+  flex-grow: 1
+  padding: 1rem 2rem
+  background-color: white
+.content-grid
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  gap: 3rem
+  @media (max-width: 640px)
+    grid-template-columns: 1fr
+  @media (max-width: 800px)
+    grid-template-columns: 1fr 1fr
+.content-card
+  max-width: 400px
+.content-card-title
+  font-family: 'Bitter', serif
+  margin-bottom: 0
+.content-card-image
+  width: 100%
+.content-tags
+  display: flex
+  gap: 0.6rem
+  align-item: center
+  font-family: 'Economica', sans-serif
+  text-transform: uppercase
+  margin-top: 0.2rem
+.content-tags-tag:before
+  content: '#'
+  font-size: 0.8rem
+  margin-right: 0.2rem
+  font-family: sans-serif
