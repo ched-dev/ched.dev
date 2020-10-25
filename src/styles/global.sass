@@ -1,15 +1,16 @@
-@import 'https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap&text=ched.dev'
+@import 'https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap'
+// &text=ched.dev
 @import 'https://fonts.googleapis.com/css2?family=Bitter&family=Economica&family=Raleway&display=swap'
 
 $brand-primary: teal // brown, darkolivegreen, olivedrab, teal
-$brand-secondary: cyan
+$brand-secondary: teal // chocolate, crimson, darkslategrey, sandybrown, sienna
 $brand-gradient: linear-gradient(115deg, $brand-primary 20%, cyan)
-// colors: floralwhite
-$sidebar-width: 250px
+// colors light: floralwhite, moccasin, navajowhite
+$sidebar-width: 271px
 
 $breakpoint-sm: 480px
 $breakpoint-md: 640px
-$breakpoint-lg: 800px
+$breakpoint-lg: 900px
 
 html
   background-color: black
@@ -18,7 +19,7 @@ html, body, #__next, .main-layout
 body
   margin: 0
   padding: 10px
-  background: $brand-gradient
+  background: $brand-primary
   font-family: 'Raleway', sans-serif
 *
   box-sizing: border-box
@@ -27,6 +28,10 @@ p
 
 .main-layout
   display: flex
+  @media (max-width: $breakpoint-lg)
+    flex-direction: column
+    .main-nav
+      display: none
 .main-header
   display: flex
   flex-direction: column
@@ -34,13 +39,22 @@ p
   padding: 1.6rem 1.6rem 0 1.6rem
   margin-right: 10px
   background-color: white
+  @media (max-width: $breakpoint-lg)
+    margin-right: 0
+.main-header-links
+  display: flex
+  flex-direction: column
+  justify-content: center
 .main-name
+  position: relative
   font-family: 'Zilla Slab', cursive
   font-size: 3rem
   color: white
   background-color: $brand-primary
   text-decoration: none
   padding: 0 0.6rem
+  @media (max-width: $breakpoint-lg)
+    justify-self: center
 .main-nav
   position: relative
   display: flex
@@ -59,8 +73,16 @@ p
 .main-logo
   display: block
   height: 200px
+  position: fixed
+  bottom: 0
+  left: 40px
   img
     height: 100%
+  @media (max-height: 510px)
+    display: none
+  @media (max-width: $breakpoint-lg)
+    position: static
+    margin: -1rem auto 0
 
 
 .content-container
@@ -99,15 +121,56 @@ p
   @media (max-width: $breakpoint-sm)
     width: 100%
 .content-tags
-  display: flex
+  display: inline-flex
   gap: 0.6rem
+  flex-wrap: wrap
   align-item: center
   font-family: 'Economica', sans-serif
   text-transform: uppercase
-  margin-top: 0.2rem
+.content-tags-tag
+  text-decoration: none
+  color: inherit
 .content-tags-tag:before
+  display: inline-block
+  position: relative
+  top: -0.1em
   content: '#'
-  font-size: 0.8rem
+  font-size: 0.8em
   margin-right: 0.2rem
   font-family: sans-serif
 // .content-card-deep-links
+.content-tags.size-m
+  font-size: 1.4rem
+  gap: 1.2rem
+
+
+.section-header
+  background: $brand-gradient
+  color: white
+  margin: -1rem -2rem 2rem -2rem
+  padding: 1.6rem 2rem
+  min-height: 7rem
+  display: flex
+  flex-direction: column
+.section-title
+  font-family: 'Zilla Slab', cursive
+  font-size: 3rem
+  margin: 0
+.section-subtitle
+  font-size: 1.4rem
+  margin: 0
+
+
+.hack-bar
+  display: block
+  position: fixed
+  bottom: 0
+  left: 0
+  width: $sidebar-width
+  overflow: hidden
+  &:after
+    content: ''
+    display: block
+    width: 100vw
+    height: 10px
+    background: $brand-gradient

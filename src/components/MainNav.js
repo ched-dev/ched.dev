@@ -3,7 +3,7 @@ import Link from 'next/link'
 export default function MainNav() {
   return (
     <header className="main-header">
-      <div clasName="main-header-links">
+      <div className="main-header-links">
         <Link href="/" title="home"><a className="main-name">ched.dev</a></Link>
         <nav className="main-nav">
           <Link href="/code/code-bits"><a>Code Bits</a></Link>
