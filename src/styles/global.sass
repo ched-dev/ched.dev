@@ -55,6 +55,7 @@ p
   padding: 0 0.6rem
   @media (max-width: $breakpoint-lg)
     justify-self: center
+    margin: 0 auto
 .main-nav
   position: relative
   display: flex
@@ -86,9 +87,12 @@ p
 
 
 .content-container
+  display: flex
+  flex-direction: column
   flex-grow: 1
-  padding: 1rem 2rem
   background-color: white
+.content-padded
+  padding: 2rem 2rem
 .content-grid
   display: grid
   grid-template-columns: 1fr
@@ -99,7 +103,7 @@ p
   //   grid-template-columns: 1fr 1fr
 .content-card
   max-width: 60rem
-  margin: 0 auto
+  margin: 0 2rem
   &:after
     clear: both
     display: block
@@ -110,6 +114,8 @@ p
     border-bottom: solid 1px $brand-primary
   &:last-child:after
     display: none
+  @media (max-width: $breakpoint-lg)
+    margin: 0
 .content-card-title
   font-family: 'Bitter', serif
   margin-bottom: 0
@@ -130,6 +136,7 @@ p
 .content-tags-tag
   text-decoration: none
   color: inherit
+  margin-bottom: -1rem
 .content-tags-tag:before
   display: inline-block
   position: relative
@@ -142,12 +149,26 @@ p
 .content-tags.size-m
   font-size: 1.4rem
   gap: 1.2rem
+.content-footer
+  text-align: right
+  color: lightgrey
+  margin-top: auto
+  p
+    font-size: 0.8rem
+    margin: 0.5rem 1rem
 
+.content-format-switcher
+  display: flex
+  align-items: center
+  gap: 0.6rem
+.content-format-minimal
+  .content-card-description, .content-card-deep-links, .content-card-image, .content-card-read-more
+    display: none
 
 .section-header
   background: $brand-gradient
   color: white
-  margin: -1rem -2rem 2rem -2rem
+  // margin-bottom: 2rem
   padding: 1.6rem 2rem
   min-height: 7rem
   display: flex
@@ -159,6 +180,10 @@ p
 .section-subtitle
   font-size: 1.4rem
   margin: 0
+.section-infotitle
+  font-size: 0.8rem
+  text-transform: uppercase
+  color: darkslategrey
 
 
 .hack-bar
@@ -174,3 +199,22 @@ p
     width: 100vw
     height: 10px
     background: $brand-gradient
+  @media (max-width: $breakpoint-sm)
+    display: none
+
+
+.button
+  position: relative
+  display: inline-block
+  border: solid 1px lightgrey
+  border-radius: 4px
+  cursor: pointer
+  padding: 0.5rem
+  &.is-selected:after
+    content: ''
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 100%
+    border-bottom: solid 2px dodgerblue
+    border-radius: 4px

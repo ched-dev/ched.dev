@@ -1,26 +1,18 @@
+import { useState, useEffect } from 'react'
 import Layout from 'src/components/Layout'
+import Footer from 'src/components/Footer'
 import MainNav from 'src/components/MainNav'
 import Tags from 'src/components/Tags'
+import ContentFormatSwitcher from 'src/components/ContentFormatSwitcher'
 import Link from 'next/link'
+import localStorageUtil from 'src/utils/localStorage'
 
 const bits = [
-  {
-    slug: 'definition-lists',
-    title: 'Key/Value pairs with Definition Lists',
-    tags: ['semantic html', 'key value'],
-    thumbnail: '/code-sample-screenshot.png',
-    description: 'Display Key / Value pairs on the page using Definition List `<dl>` element',
-    headers: [
-      'Why a Definition List over X, Y, Z?',
-      'Is it accessible?',
-      'Alternative ways to build a Key/Value list'
-    ]
-  },
   {
     slug: 'javascript-set-constructor',
     title: 'JavaScript Set Contructor',
     tags: ['javascript', 'es6', 'dedupe'],
-    thumbnail: '/code-sample-screenshot-2.png',
+    thumbnail: '/javascript-set-sample.png',
     description: 'Explore use cases for the JavaScript Set Contructor as well as limitation and gotchas.',
     headers: [
       'What is the purpose of `Set`?',
@@ -33,7 +25,7 @@ const bits = [
     slug: 'merging-defaults-with-options-for-config',
     title: 'Merging Defaults with Options for config',
     tags: ['javascript', 'es6', 'objects', 'config'],
-    thumbnail: '/code-sample-screenshot-3.png',
+    thumbnail: '/merging-defaults-sample.png',
     description: 'We will commonly merge a set of options with a set of default options. Our end goal is to get a configuration.',
     headers: [
       'Example Scenarios',
@@ -41,7 +33,19 @@ const bits = [
       'Understanding shallow vs deep merging',
       'Gotchas'
     ]
-  }
+  },
+  {
+    slug: 'definition-lists',
+    title: 'Key/Value pairs with Definition Lists',
+    tags: ['semantic html', 'key value'],
+    // thumbnail: '/code-sample-screenshot.png',
+    description: 'Display Key / Value pairs on the page using Definition List `<dl>` element',
+    headers: [
+      'Why a Definition List over X, Y, Z?',
+      'Is it accessible?',
+      'Alternative ways to build a Key/Value list'
+    ]
+  },
 ]
 
 const tagCountsByLabel = bits.reduce((tagCounts, bit) => {
@@ -63,6 +67,12 @@ const codeBitTags = Object.keys(tagCountsByLabel).map(tag => ({
 // console.log('codeBitTags', codeBitTags)
 
 export default function CodeBits() {
+  const [contentFormat, setContentFormat] = useState('')
+
+  useEffect(() => {
+    setContentFormat(localStorageUtil.getContentFormat())
+  })
+
   return (
     <Layout title="Code Bits">
       <MainNav />
@@ -72,12 +82,13 @@ export default function CodeBits() {
           <p className="section-subtitle">Bits you won't want to code without.</p>
           <p>Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/code-bits" /></p>
         </section>
-        <section className="content-grid">
+        <section className={`content-grid content-format-${contentFormat} content-padded`}>
+          <ContentFormatSwitcher onChange={setContentFormat} />
           {bits.map(bit => (
             <article key={bit.slug} className="content-card">
-              <img src={bit.thumbnail} className="content-card-image" />
+              {bit.thumbnail && <img src={bit.thumbnail} className="content-card-image" />}
               <h2 className="content-card-title">{bit.title}</h2>
-              <p><Tags tags={bit.tags} /></p>
+              <Tags tags={bit.tags} />
               <p className="content-card-description">{bit.description}</p>
               <ol className="content-card-deep-links" type="I">
                 {bit.headers.map(header => (
@@ -86,10 +97,11 @@ export default function CodeBits() {
                   </li>
                 ))}
               </ol>
-              <Link href="#"><a>Continue Reading &gt;</a></Link>
+              <Link href="#"><a className="content-card-read-more">Continue Reading &gt;</a></Link>
             </article>
           ))}
         </section>
+        <Footer />
       </main>
     </Layout>
   )

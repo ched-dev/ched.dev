@@ -15,6 +15,7 @@ export default function MainNav() {
       <span className="main-logo" aria-hidden="true">
         <img src="/avatar-cheddev-spaced.png" />
       </span>
+      <span className="hack-bar">{/* fixing logo bottom */}</span>
     </header>
   )
 }
