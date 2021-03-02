@@ -1,0 +1,98 @@
+.content-container
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+.content-padded
+  padding: 2rem 2rem
+.content-grid
+  display: grid
+  grid-template-columns: 1fr
+  gap: 1rem
+  // @media (max-width: $breakpoint-md)
+  //   grid-template-columns: 1fr
+  // @media (max-width: $breakpoint-lg)
+  //   grid-template-columns: 1fr 1fr
+.content-card
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: 1fr 1fr auto
+  grid-template-areas: 'title' 'tags' 'actions'
+  justify-items: start
+  max-width: 60rem
+  margin: 0 2rem
+  padding: 1rem 1.4rem
+  background: $brand-secondary
+  @media (max-width: $breakpoint-lg)
+    margin: 0
+.content-card-title
+  grid-area: title
+  position: relative
+  font-family: 'Zilla Slab', serif
+  margin: 0
+.content-card-id
+  position: absolute
+  right: calc(100% + 1rem)
+  color: $brand-tertiary
+  border-bottom: solid 3px $brand-tertiary
+  font-size: 1.2rem
+.content-card-actions
+  grid-area: actions
+  // font-family: 'Zilla Slab', cursive
+  font-family: 'Economica', sans-serif
+  text-transform: uppercase
+  font-size: 1.2rem
+  color: $brand-tertiary !important
+  margin-bottom: -1.2rem
+  background: $background-color !important
+  padding: 0.5rem 2rem 0.5rem
+.content-card-image
+  float: right
+  max-width: 40%
+  margin-top: 1rem
+  margin-left: 2rem
+  @media (max-width: $breakpoint-sm)
+    width: 100%
+.content-tags
+  grid-area: tags
+  display: inline-flex
+  gap: 0.6rem
+  flex-wrap: wrap
+  align-item: center
+  font-family: 'Economica', sans-serif
+  text-transform: uppercase
+  color: $brand-tertiary
+.content-tags-tag
+  text-decoration: none
+  color: inherit
+.content-tags-tag:before
+  display: inline-block
+  position: relative
+  top: -0.1em
+  content: '#'
+  font-size: 0.8em
+  margin-right: 0.2rem
+  font-family: sans-serif
+// .content-card-deep-links
+.content-tags.size-m
+  font-size: 1.4rem
+  gap: 1.2rem
+.content-footer
+  text-align: right
+  color: lightgrey
+  margin-top: auto
+  p
+    font-size: 0.8rem
+    margin: 0.5rem 1rem
+
+.content-format-switcher
+  display: flex
+  align-items: center
+  gap: 0.6rem
+  margin-bottom: 1rem
+  > .button
+    color: $brand-tertiary
+    background: none
+    border: none
+.content-format-minimal
+  .content-card-description, .content-card-deep-links, .content-card-image, .content-card-read-more
+    display: none

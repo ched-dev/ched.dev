@@ -1,0 +1,63 @@
+.main-layout
+  display: flex
+  @media (max-width: $breakpoint-lg)
+    flex-direction: column
+    .main-nav
+      display: none
+.main-header
+  position: sticky
+  top: 0
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  height: 100vh
+  padding: 1.6rem 1.6rem 0 1.6rem
+  margin-right: 2rem
+  @media (max-width: $breakpoint-lg)
+    margin-right: 0
+.main-header-links
+  display: flex
+  flex-direction: column
+  justify-content: center
+.main-name
+  position: relative
+  font-family: 'Zilla Slab', cursive
+  font-size: 3rem
+  color: white
+  background-color: $brand-primary
+  text-decoration: none
+  padding: 0 0.6rem
+  @media (max-width: $breakpoint-lg)
+    justify-self: center
+    margin: 0 auto
+.main-nav
+  position: relative
+  display: flex
+  flex-direction: column
+  margin: 2rem 1rem 0 1rem
+  text-indent: 0.4rem
+  a
+    font-family: 'Economica', sans-serif
+    display: inline-flex
+    font-size: 2rem
+    color: white
+    text-transform: lowercase
+    text-decoration: none
+    border-bottom: solid 1px $brand-secondary
+    margin-bottom: 0.6rem
+.main-logo
+  display: block
+  height: 200px
+  position: fixed
+  bottom: 2rem
+  left: 2rem
+  background: white
+  border-radius: 50%
+  overflow: hidden
+  img
+    height: 100%
+  @media (max-height: 510px)
+    display: none
+  @media (max-width: $breakpoint-lg)
+    position: static
+    margin: -1rem auto 0

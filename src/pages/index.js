@@ -8,8 +8,9 @@ export default function Home() {
     <Layout title="Home">
       <MainNav />
       <main className="content-container">
-        <h1>Front End Web Development Knowledgebase</h1>
-        <h2><Tags size="l" tags={['javascript', 'es6', 'css', 'sass']} /></h2>
+        <i className="homepage-icon fa fa-code" />
+        {/* <h1>Front End Web Development Knowledgebase</h1>
+        <h2><Tags size="l" tags={['javascript', 'es6', 'css', 'sass']} /></h2> */}
       </main>
     </Layout>
   )

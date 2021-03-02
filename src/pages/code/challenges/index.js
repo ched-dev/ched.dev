@@ -79,11 +79,11 @@ export default function CodeBits() {
       <main className="content-container">
         <section className="section-header">
           <h1 className="section-title">Code Challenges</h1>
-          <p className="section-subtitle">Trickery, Whiteboarding, and all the things you hate</p>
-          <p>Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/code-bits" /></p>
+          <p className="section-subtitle">Master the craft of code with common code challenge exercises</p>
+          <p>Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/challenges" /></p>
+          <ContentFormatSwitcher onChange={setContentFormat} />
         </section>
         <section className={`content-grid content-format-${contentFormat} content-padded`}>
-          <ContentFormatSwitcher onChange={setContentFormat} />
           {bits.map(bit => (
             <article key={bit.slug} className="content-card">
               {bit.thumbnail && <img src={bit.thumbnail} className="content-card-image" />}

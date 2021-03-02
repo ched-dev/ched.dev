@@ -9,41 +9,51 @@ import localStorageUtil from 'src/utils/localStorage'
 
 const bits = [
   {
+    id: '1.0',
+    slug: 'introduction-the-journey-of-learning-to-code',
+    title: 'Introduction: The journey of learning to code',
+    tags: ['learning', 'studying', 'code'],
+  },
+  {
+    id: '2.0',
     slug: 'javascript-set-constructor',
     title: 'JavaScript Set Contructor',
     tags: ['javascript', 'es6', 'dedupe'],
-    thumbnail: '/javascript-set-sample.png',
-    description: 'Explore use cases for the JavaScript Set Contructor as well as limitation and gotchas.',
-    headers: [
-      'What is the purpose of `Set`?',
-      'Is `Set` supported?',
-      'How can I deduplicate with a `Set`?',
-      '`Set` Gotchas'
+    children: [
+      {
+        id: '2.1',
+        slug: 'javascript-set-constructor',
+        title: 'JavaScript Set Contructor',
+        tags: ['javascript', 'es6', 'dedupe'],
+      },
     ]
   },
   {
-    slug: 'merging-defaults-with-options-for-config',
-    title: 'Merging Defaults with Options for config',
+    id: '3.0',
+    slug: 'writing-configurable-code',
+    title: 'Writing Configurable Code',
     tags: ['javascript', 'es6', 'objects', 'config'],
-    thumbnail: '/merging-defaults-sample.png',
-    description: 'We will commonly merge a set of options with a set of default options. Our end goal is to get a configuration.',
-    headers: [
-      'Example Scenarios',
-      'The old way, the new way, the best way?',
-      'Understanding shallow vs deep merging',
-      'Gotchas'
+    children: [
+      {
+        id: '3.1',
+        slug: 'merging-defaults-with-options-for-config',
+        title: 'Merging Defaults with Options for config',
+        tags: ['javascript', 'es6', 'objects', 'config'],
+      },
     ]
   },
   {
-    slug: 'definition-lists',
-    title: 'Key/Value pairs with Definition Lists',
-    tags: ['semantic html', 'key value'],
-    // thumbnail: '/code-sample-screenshot.png',
-    description: 'Display Key / Value pairs on the page using Definition List `<dl>` element',
-    headers: [
-      'Why a Definition List over X, Y, Z?',
-      'Is it accessible?',
-      'Alternative ways to build a Key/Value list'
+    id: '4.0',
+    slug: 'writing-common-components',
+    title: 'Writing Common Components',
+    tags: ['user interface', 'components', 'semantic html'],
+    children: [
+      {
+        id: '4.0.1',
+        slug: 'definition-lists',
+        title: 'Key/Value pairs with Definition Lists',
+        tags: ['semantic html', 'key value'],
+      },
     ]
   },
 ]
@@ -74,30 +84,24 @@ export default function CodeBits() {
   })
 
   return (
-    <Layout title="Code Bits">
+    <Layout title="Code in Bits">
       <MainNav />
       <main className="content-container">
         <section className="section-header">
-          <h1 className="section-title">Code Bits</h1>
-          <p className="section-subtitle">Bits you won't want to code without.</p>
-          <p>Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/code-bits" /></p>
-          <ContentFormatSwitcher onChange={setContentFormat} />
+          <h1 className="section-title">Code in Bits</h1>
+          <p className="section-subtitle">A guide of bits needed for building UI's and prototyping in JavaScript</p>
+          <p>Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/bits" /></p>
+          {/* <ContentFormatSwitcher onChange={setContentFormat} /> */}
         </section>
         <section className={`content-grid content-format-${contentFormat} content-padded`}>
           {bits.map(bit => (
             <article key={bit.slug} className="content-card">
               {bit.thumbnail && <img src={bit.thumbnail} className="content-card-image" />}
-              <h2 className="content-card-title">{bit.title}</h2>
+              <h2 className="content-card-title"><span className="content-card-id">{bit.id}</span> {bit.title}</h2>
               <Tags tags={bit.tags} />
-              <p className="content-card-description">{bit.description}</p>
-              <ol className="content-card-deep-links" type="I">
-                {bit.headers.map(header => (
-                  <li key={header}>
-                    <Link href="#"><a>{header}</a></Link>
-                  </li>
-                ))}
-              </ol>
-              <Link href="#"><a className="content-card-read-more">Continue Reading &gt;</a></Link>
+              {bit.children && bit.children.length && (
+                <button className="content-card-actions button">{bit.children.length} Articles <i className="fa fa-angle-down" /></button>
+              )}
             </article>
           ))}
         </section>

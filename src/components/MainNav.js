@@ -6,17 +6,16 @@ export default function MainNav() {
       <div className="main-header-links">
         <Link href="/" title="home"><a className="main-name">ched.dev</a></Link>
         <nav className="main-nav">
-          <Link href="/code/bits"><a>Code Bits</a></Link>
-          <Link href="/code/projects"><a>Code Projects</a></Link>
+          <Link href="/code/bits"><a>Code in Bits</a></Link>
           <Link href="/code/challenges"><a>Code Challenges</a></Link>
+          <Link href="/code/live-streams"><a>Code Live Streams</a></Link>
           
-          <Link href="/code/interview-prep"><a>Interview Prep</a></Link>
+          {/* <Link href="/code/interview-prep"><a>Interview Prep</a></Link> */}
         </nav>
       </div>
       <span className="main-logo" aria-hidden="true">
         <img src="/avatar-cheddev-spaced.png" />
       </span>
-      <span className="hack-bar">{/* fixing logo bottom */}</span>
     </header>
   )
 }
