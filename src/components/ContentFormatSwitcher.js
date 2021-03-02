@@ -18,8 +18,8 @@ export default function ContentFormatSwitcher({ onChange = () => {} }) {
   return (
     <nav className="content-format-switcher">
       <span className="section-infotitle">View as</span>
-      <button className={classnames(`button`, { 'is-selected': contentFormat === 'minimal' })} onClick={() => savePreference('minimal')}><i className="fa fa-indent" aria-hidden="true" /> Minimal</button>
-      <button className={classnames(`button`, { 'is-selected': contentFormat === 'detailed' })} onClick={() => savePreference('detailed')}><i className="fa fa-outdent" aria-hidden="true" /> Detailed</button>
+      <button className={classnames(`button`, { 'is-selected': contentFormat === 'minimal' })} onClick={() => savePreference('minimal')}><i className="fa fa-list-ul" aria-hidden="true" /> Minimal</button>
+      <button className={classnames(`button`, { 'is-selected': contentFormat === 'detailed' })} onClick={() => savePreference('detailed')}><i className="fa fa-window-maximize" aria-hidden="true" /> Detailed</button>
     </nav>
   )
 }

@@ -1,10 +1,14 @@
 @import 'https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap'
 // &text=ched.dev
 @import 'https://fonts.googleapis.com/css2?family=Bitter&family=Economica&family=Raleway&display=swap'
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
 
-$brand-primary: teal // brown, darkolivegreen, olivedrab, teal
-$brand-secondary: teal // chocolate, crimson, darkslategrey, sandybrown, sienna
-$brand-gradient: linear-gradient(115deg, $brand-primary 20%, cyan)
+$background-color: #333
+$brand-primary: goldenrod // teal, brown, darkolivegreen, olivedrab, teal
+$brand-secondary: darkslategrey // black, cadetblue, darkgoldenrod, darkslategrey, lightslategrey, 
+$brand-tertiary: silver
+$brand-gradient: #333
+// $brand-gradient: linear-gradient(115deg, $brand-primary 20%, $brand-secondary)
 // colors light: floralwhite, moccasin, navajowhite
 $sidebar-width: 271px
 
@@ -13,18 +17,20 @@ $breakpoint-md: 640px
 $breakpoint-lg: 900px
 
 html
-  background-color: black
+  background-color: $background-color
 html, body, #__next, .main-layout
   min-height: calc(100vh - 20px)
 body
   margin: 0
-  padding: 10px
-  background: $brand-primary
+  background: $background-color
   font-family: 'Raleway', sans-serif
+  color: white
 *
   box-sizing: border-box
 p
   line-height: 1.6rem
+a
+  color: white
 
 .main-layout
   display: flex
@@ -33,12 +39,14 @@ p
     .main-nav
       display: none
 .main-header
+  position: sticky
+  top: 0
   display: flex
   flex-direction: column
   justify-content: space-between
+  height: 100vh
   padding: 1.6rem 1.6rem 0 1.6rem
-  margin-right: 10px
-  background-color: white
+  margin-right: 2rem
   @media (max-width: $breakpoint-lg)
     margin-right: 0
 .main-header-links
@@ -66,17 +74,20 @@ p
     font-family: 'Economica', sans-serif
     display: inline-flex
     font-size: 2rem
-    color: black
+    color: white
     text-transform: lowercase
     text-decoration: none
-    border-bottom: solid 1px black
+    border-bottom: solid 1px $brand-secondary
     margin-bottom: 0.6rem
 .main-logo
   display: block
   height: 200px
   position: fixed
-  bottom: 0
-  left: 40px
+  bottom: 2rem
+  left: 2rem
+  background: white
+  border-radius: 50%
+  overflow: hidden
   img
     height: 100%
   @media (max-height: 510px)
@@ -90,7 +101,6 @@ p
   display: flex
   flex-direction: column
   flex-grow: 1
-  background-color: white
 .content-padded
   padding: 2rem 2rem
 .content-grid
@@ -102,8 +112,22 @@ p
   // @media (max-width: $breakpoint-lg)
   //   grid-template-columns: 1fr 1fr
 .content-card
+  position: relative
   max-width: 60rem
   margin: 0 2rem
+  > *
+    position: relative
+    z-index: 10
+  &:before
+    display: block
+    content: ''
+    width: 100%
+    height: 3.6rem
+    position: absolute
+    top: 1rem
+    left: -1rem
+    z-index: 5
+    background: $brand-secondary
   &:after
     clear: both
     display: block
@@ -111,13 +135,13 @@ p
     width: 80%
     margin: 2rem auto 0
     // padding: 1rem 0 0
-    border-bottom: solid 1px $brand-primary
+    border-bottom: solid 1px $brand-secondary
   &:last-child:after
     display: none
   @media (max-width: $breakpoint-lg)
     margin: 0
 .content-card-title
-  font-family: 'Bitter', serif
+  font-family: 'Zilla Slab', serif
   margin-bottom: 0
 .content-card-image
   float: right
@@ -161,18 +185,38 @@ p
   display: flex
   align-items: center
   gap: 0.6rem
+  margin-bottom: 1rem
+  > .button
+    color: $brand-tertiary
+    background: none
+    border: none
 .content-format-minimal
   .content-card-description, .content-card-deep-links, .content-card-image, .content-card-read-more
     display: none
 
 .section-header
+  position: sticky
+  top: 0
+  z-index: 15
   background: $brand-gradient
   color: white
   // margin-bottom: 2rem
-  padding: 1.6rem 2rem
+  padding: 1.6rem 2rem 0
   min-height: 7rem
   display: flex
   flex-direction: column
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    top: 3.8rem
+    left: 1rem
+    bottom: 1rem
+    width: 30rem
+    height: 1.4rem
+    background: $brand-secondary
+  > *
+    position: relative
 .section-title
   font-family: 'Zilla Slab', cursive
   font-size: 3rem
@@ -183,7 +227,7 @@ p
 .section-infotitle
   font-size: 0.8rem
   text-transform: uppercase
-  color: darkslategrey
+  color: $brand-tertiary
 
 
 .hack-bar
@@ -198,7 +242,7 @@ p
     display: block
     width: 100vw
     height: 10px
-    background: $brand-gradient
+    background: $background-color
   @media (max-width: $breakpoint-sm)
     display: none
 
@@ -206,7 +250,6 @@ p
 .button
   position: relative
   display: inline-block
-  border: solid 1px lightgrey
   border-radius: 4px
   cursor: pointer
   padding: 0.5rem
@@ -216,5 +259,7 @@ p
     left: 0
     bottom: 0
     width: 100%
-    border-bottom: solid 2px dodgerblue
+    border-bottom: solid 2px $brand-tertiary
     border-radius: 4px
+  &:focus
+    border-color: $brand-tertiary

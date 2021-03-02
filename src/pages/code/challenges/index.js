@@ -78,8 +78,8 @@ export default function CodeBits() {
       <MainNav />
       <main className="content-container">
         <section className="section-header">
-          <h1 className="section-title">Code Bits</h1>
-          <p className="section-subtitle">Bits you won't want to code without.</p>
+          <h1 className="section-title">Code Challenges</h1>
+          <p className="section-subtitle">Trickery, Whiteboarding, and all the things you hate</p>
           <p>Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/code-bits" /></p>
         </section>
         <section className={`content-grid content-format-${contentFormat} content-padded`}>
