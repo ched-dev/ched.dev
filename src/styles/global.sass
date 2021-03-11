@@ -14,4 +14,11 @@
 .homepage-icon
   font-size: 20rem
   margin: auto 20vw
-  color: black
+  color: $brand-tertiary
+  @media (max-width: $breakpoint-md)
+    font-size: 10rem
+    margin: auto
+
+.hide-breakpoint-sm
+  @media (max-width: $breakpoint-sm)
+    display: none

@@ -19,15 +19,13 @@ $image-gap-plus: $image-gap + $image-gap-space
   margin: 3rem $image-gap 2rem 2rem
   background: $brand-secondary
   @media (max-width: $breakpoint-lg)
-    margin: 0
+    margin-left: auto
+    margin-right: auto
 .project-card-header
   display: flex
   flex-direction: column
   margin: -4.8rem 0 0 0
   padding: 1.4rem 1rem
-  // width: $image-gap
-  // .content-tags, .project-card-title
-  //   width: 60rem
 .project-card-title
   grid-area: title
   position: relative
@@ -50,15 +48,20 @@ $image-gap-plus: $image-gap + $image-gap-space
   width: $image-gap-plus
   margin-top: 2rem
   border: solid 10px $brand-tertiary
-  @media (max-width: $breakpoint-sm)
-    width: 100%
+  @media (max-width: $breakpoint-lg)
+    display: none
+  @media (max-width: $breakpoint-md)
+    position: static
+    display: block
+    width: 120%
+    margin-left: -10%
 .project-card-description
   // margin-top: 0
 .project-card-body
   padding: 0 4rem 2rem 2rem
 .project-card-read-more:not([href])
   cursor: default
-  span
+  .project-card-read-more-text
     display: none
   &::after
     content: 'Coming Soon'
@@ -110,7 +113,9 @@ $image-gap-plus: $image-gap + $image-gap-space
   display: flex
   align-items: center
   gap: 1rem
-  span
+  .project-card-read-more-text
     border-bottom: solid 3px $brand-tertiary
   .fa
     font-size: 3rem
+  @media (max-width: $breakpoint-sm)
+    font-size: 1.2rem

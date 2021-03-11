@@ -2,10 +2,10 @@
   position: sticky
   top: 0
   z-index: 15
+  overflow: hidden
   background: $brand-gradient
   color: white
-  // margin-bottom: 2rem
-  padding: 1.6rem 2rem 0
+  padding: 1.6rem 2rem 2rem
   min-height: 7rem
   display: flex
   flex-direction: column
@@ -21,12 +21,6 @@
     background: $brand-secondary
   > *
     position: relative
-  .content-tags
-    color: white
-    margin-bottom: 1rem
-    max-width: 60rem
-  .content-tags-tag
-    margin-bottom: -1rem
 .section-title
   font-family: 'Zilla Slab', cursive
   font-size: 3rem
@@ -38,3 +32,12 @@
   font-size: 0.8rem
   text-transform: uppercase
   color: $brand-tertiary
+.section-tags
+  max-width: 60rem
+  .content-tags
+    display: flex
+    color: white
+  .content-tags-tag
+    margin-bottom: -1rem
+  @media (max-width: $breakpoint-md)
+      display: none

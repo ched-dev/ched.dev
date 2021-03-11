@@ -57,9 +57,9 @@ export default function Projects() {
       <MainNav />
       <main className="content-container">
         <section className="section-header">
-          <h1 className="section-title">Code Project</h1>
-          <p className="section-subtitle">Applications, Prototypes, and Playgrounds</p>
-          <p>Topics:<br/><Tags size="m" tags={popularTags.map(post => post.tag)} urlBase="/code/live-streams" /></p>
+          <h1 className="section-title">Code Projects</h1>
+          <p className="section-subtitle">JavaScript Applications, Prototypes, and Playgrounds</p>
+          <p className="section-tags">Topics:<br/><Tags size="m" tags={popularTags.map(post => post.tag)} urlBase="/code/live-streams" /></p>
         </section>
         <section className="project-grid content-padded">
           {posts.map(post => (
@@ -79,7 +79,7 @@ export default function Projects() {
                     </li>
                   ))}
                 </ul>
-                <a className="project-card-read-more" href={post.playlist} target="_blank" rel="noopener no referrer"><i className="fa fa-youtube-play" /> <span>Watch Playback on YouTube</span></a>
+                <a className="project-card-read-more" href={post.playlist} target="_blank" rel="noopener no referrer"><i className="fa fa-youtube-play" /> <span className="project-card-read-more-text">Watch <span className="hide-breakpoint-sm">Video Playback</span> on YouTube</span></a>
               </section>
             </article>
           ))}
