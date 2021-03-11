@@ -1,0 +1,116 @@
+$image-gap: 20rem
+$image-gap-space: 2rem
+$image-gap-plus: $image-gap + $image-gap-space
+
+.project-grid
+  display: grid
+  grid-template-columns: 1fr
+  gap: 1rem
+  // @media (max-width: $breakpoint-md)
+  //   grid-template-columns: 1fr
+  // @media (max-width: $breakpoint-lg)
+  //   grid-template-columns: 1fr 1fr
+.project-card
+  position: relative
+  display: flex
+  flex-direction: column
+  justify-items: start
+  max-width: 40rem
+  margin: 3rem $image-gap 2rem 2rem
+  background: $brand-secondary
+  @media (max-width: $breakpoint-lg)
+    margin: 0
+.project-card-header
+  display: flex
+  flex-direction: column
+  margin: -4.8rem 0 0 0
+  padding: 1.4rem 1rem
+  // width: $image-gap
+  // .content-tags, .project-card-title
+  //   width: 60rem
+.project-card-title
+  grid-area: title
+  position: relative
+  font-family: 'Zilla Slab', serif
+  margin: 0
+.project-card-actions
+  grid-area: actions
+  // font-family: 'Zilla Slab', cursive
+  font-family: 'Economica', sans-serif
+  text-transform: uppercase
+  font-size: 1.2rem
+  color: $brand-tertiary !important
+  margin-bottom: -1.2rem
+  background: $background-color !important
+  padding: 0.5rem 2rem 0.5rem
+.project-card-image
+  position: absolute
+  top: 0
+  right: (-$image-gap)
+  width: $image-gap-plus
+  margin-top: 2rem
+  border: solid 10px $brand-tertiary
+  @media (max-width: $breakpoint-sm)
+    width: 100%
+.project-card-description
+  // margin-top: 0
+.project-card-body
+  padding: 0 4rem 2rem 2rem
+.project-card-read-more:not([href])
+  cursor: default
+  span
+    display: none
+  &::after
+    content: 'Coming Soon'
+    text-transform: uppercase
+    opacity: 0.8
+// .project-card
+//   display: flex
+//   justify-items: start
+//   max-width: 60rem
+//   margin: 2rem 2rem 2rem $image-gap
+//   background: $brand-secondary
+//   @media (max-width: $breakpoint-lg)
+//     margin: 0
+// .project-card-header
+//   display: flex
+//   flex-direction: column
+//   margin: -3.1rem ($image-gap-space * 2) 0 (-$image-gap)
+//   padding: 1.4rem 1rem
+//   width: $image-gap
+//   .content-tags, .project-card-title
+//     width: 60rem
+// .project-card-title
+//   grid-area: title
+//   position: relative
+//   font-family: 'Zilla Slab', serif
+//   margin: 0
+// .project-card-actions
+//   grid-area: actions
+//   // font-family: 'Zilla Slab', cursive
+//   font-family: 'Economica', sans-serif
+//   text-transform: uppercase
+//   font-size: 1.2rem
+//   color: $brand-tertiary !important
+//   margin-bottom: -1.2rem
+//   background: $background-color !important
+//   padding: 0.5rem 2rem 0.5rem
+// .project-card-image
+//   width: $image-gap-plus
+//   margin-top: 1rem
+//   border: solid 10px $brand-tertiary
+//   @media (max-width: $breakpoint-sm)
+//     width: 100%
+// .project-card-body
+//   padding: 0 0 2rem 2rem
+//   align-self: center
+.project-card-read-more
+  font-size: 1.4rem
+  text-decoration: none
+  display: flex
+  align-items: center
+  gap: 1rem
+  span
+    border-bottom: solid 3px $brand-tertiary
+  .fa
+    font-size: 3rem

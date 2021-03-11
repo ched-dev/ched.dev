@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react'
 import Layout from 'src/components/Layout'
 import Footer from 'src/components/Footer'
 import MainNav from 'src/components/MainNav'
 import Tags from 'src/components/Tags'
-import Link from 'next/link'
+import { getPopularTags } from 'src/utils/posts'
 
-const bits = [
+const posts = [
   {
     slug: 'warehouse-deals',
     title: 'Warehouse Deals',
@@ -49,54 +48,38 @@ const bits = [
   },
 ]
 
-const tagCountsByLabel = bits.reduce((tagCounts, bit) => {
-  bit.tags.map(tag => {
-    // assuming tags casing is consistent
-    if (!tagCounts.hasOwnProperty(tag)) {
-      tagCounts[tag] = 0
-    }
+const popularTags = getPopularTags(posts)
 
-    tagCounts[tag]++
-  })
-
-  return tagCounts
-}, {})
-const codeBitTags = Object.keys(tagCountsByLabel).map(tag => ({
-  tag,
-  count: tagCountsByLabel[tag]
-})).sort((a, b) => b.count - a.count)
-// console.log('codeBitTags', codeBitTags)
-
-export default function LiveStreams() {
+export default function Projects() {
 
   return (
-    <Layout title="Live Streams">
+    <Layout title="Projects">
       <MainNav />
       <main className="content-container">
         <section className="section-header">
-          <h1 className="section-title">Coding Live Streams</h1>
-          <p className="section-subtitle">Twitch Live Streams of Applications, Prototypes, and Playgrounds</p>
-          <p>Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/live-streams" /></p>
+          <h1 className="section-title">Code Project</h1>
+          <p className="section-subtitle">Applications, Prototypes, and Playgrounds</p>
+          <p>Topics:<br/><Tags size="m" tags={popularTags.map(post => post.tag)} urlBase="/code/live-streams" /></p>
         </section>
         <section className="project-grid content-padded">
-          {bits.map(bit => (
-            <article key={bit.slug} className="project-card">
+          {posts.map(post => (
+            <article key={post.slug} className="project-card">
               <header className="project-card-header">
-                <h2 className="project-card-title">{bit.title}</h2>
-                <Tags tags={bit.tags} />
-                {bit.thumbnail && <img src={bit.thumbnail} className="project-card-image" />}
+                <h2 className="project-card-title">{post.title}</h2>
+                <Tags tags={post.tags} />
+                {post.thumbnail && <img src={post.thumbnail} className="project-card-image" />}
               </header>
               
               <section className="project-card-body">
-                <p className="project-card-description">{bit.description}</p>
+                <p className="project-card-description">{post.description}</p>
                 <ul className="project-card-deep-links">
-                  {bit.headers.map(header => (
+                  {post.headers.map(header => (
                     <li key={header}>
                       {header}
                     </li>
                   ))}
                 </ul>
-                <a className="project-card-read-more" href={bit.playlist} target="_blank" rel="noopener no referrer"><i className="fa fa-youtube-play" /> <span>Watch Playback on YouTube</span></a>
+                <a className="project-card-read-more" href={post.playlist} target="_blank" rel="noopener no referrer"><i className="fa fa-youtube-play" /> <span>Watch Playback on YouTube</span></a>
               </section>
             </article>
           ))}

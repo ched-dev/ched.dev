@@ -7,6 +7,7 @@ export default function MainNav() {
         <Link href="/" title="home"><a className="main-name">ched.dev</a></Link>
         <nav className="main-nav">
           <Link href="/code/bits"><a>Code in Bits</a></Link>
+          <Link href="/code/projects"><a>Code Projects</a></Link>
           <Link href="/code/challenges"><a>Code Challenges</a></Link>
           <Link href="/code/live-streams"><a>Code Live Streams</a></Link>
           

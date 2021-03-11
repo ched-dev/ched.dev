@@ -6,8 +6,9 @@ import Tags from 'src/components/Tags'
 import ContentFormatSwitcher from 'src/components/ContentFormatSwitcher'
 import Link from 'next/link'
 import localStorageUtil from 'src/utils/localStorage'
+import { getPopularTags } from 'src/utils/posts'
 
-const bits = [
+const posts = [
   {
     id: '1.0',
     slug: 'introduction-the-journey-of-learning-to-code',
@@ -16,8 +17,8 @@ const bits = [
   },
   {
     id: '2.0',
-    slug: 'javascript-set-constructor',
-    title: 'JavaScript Set Contructor',
+    slug: 'data-in-your-application',
+    title: 'Managing Data in your Application',
     tags: ['javascript', 'es6', 'dedupe'],
     children: [
       {
@@ -58,23 +59,7 @@ const bits = [
   },
 ]
 
-const tagCountsByLabel = bits.reduce((tagCounts, bit) => {
-  bit.tags.map(tag => {
-    // assuming tags casing is consistent
-    if (!tagCounts.hasOwnProperty(tag)) {
-      tagCounts[tag] = 0
-    }
-
-    tagCounts[tag]++
-  })
-
-  return tagCounts
-}, {})
-const codeBitTags = Object.keys(tagCountsByLabel).map(tag => ({
-  tag,
-  count: tagCountsByLabel[tag]
-})).sort((a, b) => b.count - a.count)
-// console.log('codeBitTags', codeBitTags)
+const popularTags = getPopularTags(posts)
 
 export default function CodeBits() {
   const [contentFormat, setContentFormat] = useState('')
@@ -90,17 +75,17 @@ export default function CodeBits() {
         <section className="section-header">
           <h1 className="section-title">Code in Bits</h1>
           <p className="section-subtitle">A guide of bits needed for building UI's and prototyping in JavaScript</p>
-          <p>Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/bits" /></p>
+          <p>Topics:<br/><Tags size="m" tags={popularTags.map(post => post.tag)} urlBase="/code/bits" /></p>
           {/* <ContentFormatSwitcher onChange={setContentFormat} /> */}
         </section>
         <section className={`content-grid content-format-${contentFormat} content-padded`}>
-          {bits.map(bit => (
-            <article key={bit.slug} className="content-card">
-              {bit.thumbnail && <img src={bit.thumbnail} className="content-card-image" />}
-              <h2 className="content-card-title"><span className="content-card-id">{bit.id}</span> {bit.title}</h2>
-              <Tags tags={bit.tags} />
-              {bit.children && bit.children.length && (
-                <button className="content-card-actions button">{bit.children.length} Articles <i className="fa fa-angle-down" /></button>
+          {posts.map(post => (
+            <article key={post.slug} className="content-card">
+              {post.thumbnail && <img src={post.thumbnail} className="content-card-image" />}
+              <h2 className="content-card-title"><span className="content-card-id">{post.id}</span> {post.title}</h2>
+              <Tags tags={post.tags} />
+              {post.children && post.children.length && (
+                <button className="content-card-actions button">{post.children.length} Articles <i className="fa fa-angle-down" /></button>
               )}
             </article>
           ))}

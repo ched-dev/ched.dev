@@ -6,8 +6,9 @@ import Tags from 'src/components/Tags'
 import ContentFormatSwitcher from 'src/components/ContentFormatSwitcher'
 import Link from 'next/link'
 import localStorageUtil from 'src/utils/localStorage'
+import { getPopularTags } from 'src/utils/posts'
 
-const bits = [
+const posts = [
   {
     slug: 'javascript-set-constructor',
     title: 'JavaScript Set Contructor',
@@ -48,25 +49,9 @@ const bits = [
   },
 ]
 
-const tagCountsByLabel = bits.reduce((tagCounts, bit) => {
-  bit.tags.map(tag => {
-    // assuming tags casing is consistent
-    if (!tagCounts.hasOwnProperty(tag)) {
-      tagCounts[tag] = 0
-    }
+const popularTags = getPopularTags(posts)
 
-    tagCounts[tag]++
-  })
-
-  return tagCounts
-}, {})
-const codeBitTags = Object.keys(tagCountsByLabel).map(tag => ({
-  tag,
-  count: tagCountsByLabel[tag]
-})).sort((a, b) => b.count - a.count)
-// console.log('codeBitTags', codeBitTags)
-
-export default function CodeBits() {
+export default function Challenges() {
   const [contentFormat, setContentFormat] = useState('')
 
   useEffect(() => {
@@ -74,24 +59,24 @@ export default function CodeBits() {
   })
 
   return (
-    <Layout title="Code Bits">
+    <Layout title="Code Challenges">
       <MainNav />
       <main className="content-container">
         <section className="section-header">
           <h1 className="section-title">Code Challenges</h1>
           <p className="section-subtitle">Master the craft of code with common code challenge exercises</p>
-          <p>Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/challenges" /></p>
+          <p>Topics:<br/><Tags size="m" tags={popularTags.map(post => post.tag)} urlBase="/code/challenges" /></p>
           <ContentFormatSwitcher onChange={setContentFormat} />
         </section>
         <section className={`content-grid content-format-${contentFormat} content-padded`}>
-          {bits.map(bit => (
-            <article key={bit.slug} className="content-card">
-              {bit.thumbnail && <img src={bit.thumbnail} className="content-card-image" />}
-              <h2 className="content-card-title">{bit.title}</h2>
-              <Tags tags={bit.tags} />
-              <p className="content-card-description">{bit.description}</p>
+          {posts.map(post => (
+            <article key={post.slug} className="content-card">
+              {post.thumbnail && <img src={post.thumbnail} className="content-card-image" />}
+              <h2 className="content-card-title">{post.title}</h2>
+              <Tags tags={post.tags} />
+              <p className="content-card-description">{post.description}</p>
               <ol className="content-card-deep-links" type="I">
-                {bit.headers.map(header => (
+                {post.headers.map(header => (
                   <li key={header}>
                     <Link href="#"><a>{header}</a></Link>
                   </li>
