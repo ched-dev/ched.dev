@@ -19,6 +19,9 @@ $image-gap-plus: $image-gap + $image-gap-space
   margin: 3rem $image-gap 2rem 2rem
   background: $brand-secondary
   @media (max-width: $breakpoint-lg)
+    margin-left: 2rem
+    margin-right: 2rem
+  @media (max-width: $breakpoint-md)
     margin-left: auto
     margin-right: auto
 .project-card-header
@@ -26,6 +29,8 @@ $image-gap-plus: $image-gap + $image-gap-space
   flex-direction: column
   margin: -4.8rem 0 0 0
   padding: 1.4rem 1rem
+  @media (max-width: $breakpoint-lg)
+    padding: 1.4rem 0.6rem
 .project-card-title
   grid-area: title
   position: relative
