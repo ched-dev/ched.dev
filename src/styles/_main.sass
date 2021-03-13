@@ -54,7 +54,6 @@
   align-items: center
   justify-content: center
   margin: 2rem 0
-  gap: 1rem
   @media (max-width: $breakpoint-md)
     position: static
     margin: 0 auto
@@ -64,13 +63,16 @@
   background: white
   border-radius: 50%
   overflow: hidden
+  margin-bottom: 1rem
   img
     height: 100%
   @media (max-height: 510px)
     display: none
 .main-social-links
   display: flex
-  gap: 1rem
   font-size: 2rem
   a
     color: $brand-tertiary
+    margin-right: 1rem
+    &:last-child
+      margin-right: 0

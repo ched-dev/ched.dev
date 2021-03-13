@@ -7,11 +7,6 @@
 .content-grid
   display: grid
   grid-template-columns: 1fr
-  gap: 1rem
-  // @media (max-width: $breakpoint-md)
-  //   grid-template-columns: 1fr
-  // @media (max-width: $breakpoint-lg)
-  //   grid-template-columns: 1fr 1fr
 .content-card
   display: grid
   grid-template-columns: 1fr
@@ -19,11 +14,13 @@
   grid-template-areas: 'title' 'tags' 'actions'
   justify-items: start
   max-width: 60rem
-  margin: 0 2rem
+  margin: 0 2rem 2rem
   padding: 1rem 1.4rem
   background: $brand-secondary
   @media (max-width: $breakpoint-lg)
     margin: 0
+  + .content-card:last-child
+    margin-bottom: 0
 .content-card-title
   grid-area: title
   position: relative
@@ -55,7 +52,6 @@
 .content-tags
   grid-area: tags
   display: inline-flex
-  gap: 0.6rem
   flex-wrap: wrap
   align-item: center
   font-family: 'Economica', sans-serif
@@ -64,6 +60,9 @@
 .content-tags-tag
   text-decoration: none
   color: inherit
+  margin-right: 0.6rem
+  &:last-child
+    margin-right: 0
 .content-tags-tag:before
   display: inline-block
   position: relative
@@ -72,10 +71,12 @@
   font-size: 0.8em
   margin-right: 0.2rem
   font-family: sans-serif
-// .content-card-deep-links
 .content-tags.size-m
   font-size: 1.4rem
-  gap: 1.2rem
+  .content-tags-tag
+    margin-right: 1.2rem
+    &:last-child
+      margin-right: 0
 .content-footer
   text-align: right
   color: lightgrey
@@ -89,8 +90,8 @@
 .content-format-switcher
   display: flex
   align-items: center
-  gap: 0.6rem
-  margin-bottom: 1rem
+  > *
+    margin-left: 0.6rem
   > .button
     color: $brand-tertiary
     background: none
