@@ -75,7 +75,7 @@ export default function CodeBits() {
         <section className="section-header">
           <h1 className="section-title">Code in Bits</h1>
           <p className="section-subtitle">A guide of bits needed for building UI's and prototyping in JavaScript</p>
-          <p>Topics:<br/><Tags size="m" tags={popularTags.map(post => post.tag)} urlBase="/code/bits" /></p>
+          <p className="section-tags">Topics:<br/><Tags size="m" tags={popularTags.map(post => post.tag)} urlBase="/code/bits" /></p>
           {/* <ContentFormatSwitcher onChange={setContentFormat} /> */}
         </section>
         <section className={`content-grid content-format-${contentFormat} content-padded`}>

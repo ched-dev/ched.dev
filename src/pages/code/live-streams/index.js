@@ -76,7 +76,7 @@ export default function LiveStreams() {
         <section className="section-header">
           <h1 className="section-title">Coding Live Streams</h1>
           <p className="section-subtitle">Twitch Live Streams of Applications, Prototypes, and Playgrounds</p>
-          <p>Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/live-streams" /></p>
+          <p className="section-tags">Topics:<br/><Tags size="m" tags={codeBitTags.map(bit => bit.tag)} urlBase="/code/live-streams" /></p>
         </section>
         <section className="project-grid content-padded">
           {bits.map(bit => (

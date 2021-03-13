@@ -65,7 +65,7 @@ export default function Challenges() {
         <section className="section-header">
           <h1 className="section-title">Code Challenges</h1>
           <p className="section-subtitle">Master the craft of code with common code challenge exercises</p>
-          <p>Topics:<br/><Tags size="m" tags={popularTags.map(post => post.tag)} urlBase="/code/challenges" /></p>
+          <p className="section-tags">Topics:<br/><Tags size="m" tags={popularTags.map(post => post.tag)} urlBase="/code/challenges" /></p>
           <ContentFormatSwitcher onChange={setContentFormat} />
         </section>
         <section className={`content-grid content-format-${contentFormat} content-padded`}>
