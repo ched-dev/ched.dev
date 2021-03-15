@@ -1,13 +1,13 @@
-.content-container
+.articles-container
   display: flex
   flex-direction: column
   flex-grow: 1
-.content-padded
+.articles-padded
   padding: 2rem 2rem
-.content-grid
+.articles-grid
   display: grid
   grid-template-columns: 1fr
-.content-card
+.articles-card
   display: grid
   grid-template-columns: 1fr
   grid-template-rows: 1fr auto auto
@@ -19,22 +19,22 @@
   background: $brand-secondary
   @media (max-width: $breakpoint-lg)
     margin: 0 0.2rem 2rem 0.4rem
-  + .content-card:last-child
+  + .articles-card:last-child
     margin-bottom: 0
-  .content-tags
+  .articles-tags
     margin-bottom: 1rem
-.content-card-title
+.articles-card-title
   grid-area: title
   position: relative
   font-family: 'Zilla Slab', serif
   margin: 0
-.content-card-id
+.articles-card-id
   position: absolute
   right: calc(100% + 1rem)
   color: $brand-tertiary
   border-bottom: solid 3px $brand-tertiary
   font-size: 1.2rem
-.content-card-actions
+.articles-card-actions
   // font-family: 'Zilla Slab', cursive
   font-family: 'Economica', sans-serif
   text-transform: uppercase
@@ -42,14 +42,14 @@
   color: $brand-tertiary !important
   background: $background-color !important
   padding: 0.5rem 2rem 0.5rem
-.content-card-image
+.articles-card-image
   float: right
   max-width: 40%
   margin-top: 1rem
   margin-left: 2rem
   @media (max-width: $breakpoint-sm)
     width: 100%
-.content-tags
+.articles-tags
   grid-area: tags
   display: inline-flex
   flex-wrap: wrap
@@ -57,13 +57,13 @@
   font-family: 'Economica', sans-serif
   text-transform: uppercase
   color: $brand-tertiary
-.content-tags-tag
+.articles-tags-tag
   text-decoration: none
   color: inherit
   margin: 0.2rem 0.6rem 0.2rem 0
   &:last-child
     margin-right: 0
-.content-tags-tag:before
+.articles-tags-tag:before
   display: inline-block
   position: relative
   top: -0.1em
@@ -71,13 +71,13 @@
   font-size: 0.8em
   margin-right: 0.2rem
   font-family: sans-serif
-.content-tags.size-m
+.articles-tags.size-m
   font-size: 1.4rem
-  .content-tags-tag
+  .articles-tags-tag
     margin-right: 1.2rem
     &:last-child
       margin-right: 0
-.content-footer
+.articles-footer
   text-align: right
   color: lightgrey
   margin-top: auto
@@ -87,7 +87,7 @@
   @media (max-width: $breakpoint-md)
     text-align: center
 
-.content-format-switcher
+.articles-format-switcher
   display: flex
   align-items: center
   > *
@@ -96,6 +96,21 @@
     color: $brand-tertiary
     background: none
     border: none
-.content-format-minimal
-  .content-card-description, .content-card-deep-links, .content-card-image, .content-card-read-more
-    display: none
+
+.articles-card-details
+  grid-area: actions
+  margin: 1rem 0 -1rem
+  width: 100%
+  .articles-card-actions
+    margin-bottom: -0.2rem
+  .articles-card-link-list
+    display: flex
+    flex-direction: column
+    justify-content: center
+    background: $background-color
+    margin: 0 -2rem
+    padding: 2rem
+  .articles-card-link-list-link
+    position: relative
+    padding: 0.4rem
+    margin-left: 2rem

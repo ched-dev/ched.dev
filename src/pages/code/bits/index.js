@@ -3,7 +3,6 @@ import Layout from 'src/components/Layout'
 import Footer from 'src/components/Footer'
 import MainNav from 'src/components/MainNav'
 import Tags from 'src/components/Tags'
-import ContentFormatSwitcher from 'src/components/ContentFormatSwitcher'
 import Link from 'next/link'
 import localStorageUtil from 'src/utils/localStorage'
 import { getPopularTags } from 'src/utils/posts'
@@ -14,6 +13,18 @@ const posts = [
     slug: 'introduction-the-journey-of-learning-to-code',
     title: 'Introduction: The journey of learning to code',
     tags: ['learning', 'studying', 'code'],
+    children: [
+      {
+        id: '1.1',
+        title: 'My Process of writing Code',
+        tags: ['javascript', 'es6', 'dedupe'],
+      },
+      {
+        id: '1.2',
+        title: 'My Process of refactoring Code',
+        tags: ['javascript', 'es6', 'dedupe'],
+      },
+    ]
   },
   {
     id: '2.0',
@@ -63,29 +74,52 @@ const popularTags = getPopularTags(posts)
 
 export default function CodeBits() {
   const [contentFormat, setContentFormat] = useState('')
+  const [expandedPosts, setExpandedPosts] = useState([])
 
   useEffect(() => {
     setContentFormat(localStorageUtil.getContentFormat())
   })
 
+  const expandArticles = (post) => {
+    if (expandedPosts.includes(post.id)) {
+      setExpandedPosts(expandedPosts.filter(id => id !== post.id))
+    } else {
+      setExpandedPosts(expandedPosts.concat(post.id))
+    }
+  }
+
   return (
     <Layout title="Code in Bits">
       <MainNav />
-      <main className="content-container">
+      <main className="articles-container">
         <section className="section-header">
           <h1 className="section-title">Code in Bits</h1>
           <p className="section-subtitle">A guide of bits needed for building UI's and prototyping in JavaScript</p>
           <p className="section-tags">Topics:<br/><Tags size="m" tags={popularTags.map(post => post.tag)} urlBase="/code/bits" /></p>
           {/* <ContentFormatSwitcher onChange={setContentFormat} /> */}
         </section>
-        <section className={`content-grid content-format-${contentFormat} content-padded`}>
+        <section className={`articles-grid articles-format-${contentFormat} articles-padded`}>
           {posts.map(post => (
-            <article key={post.slug} className="content-card">
-              {post.thumbnail && <img src={post.thumbnail} className="content-card-image" />}
-              <h2 className="content-card-title"><span className="content-card-id">{post.id}</span> {post.title}</h2>
+            <article key={post.slug} className="articles-card">
+              {post.thumbnail && <img src={post.thumbnail} className="articles-card-image" />}
+              <h2 className="articles-card-title"><span className="articles-card-id">{post.id}</span> {post.title}</h2>
               <Tags tags={post.tags} />
               {post.children && post.children.length && (
-                <button className="content-card-actions button">{post.children.length} Articles <i className="fa fa-angle-down" /></button>
+                <details className="articles-card-details">
+                  <summary className="articles-card-actions button" onClick={() => expandArticles(post)}>
+                    {post.children.length} Articles <i className={`fa fa-angle-${expandedPosts.includes(post.id) ? 'up' : 'down'}`} />
+                  </summary>
+
+                  <section className="articles-card-link-list">
+                    {post.children.map(article => (
+                      <Link href={'#'} key={article.id}>
+                        <a className="articles-card-link-list-link">
+                          <span className="articles-card-id">{article.id}</span> {article.title}
+                        </a>
+                      </Link>
+                    ))}
+                  </section>
+                </details>
               )}
             </article>
           ))}
