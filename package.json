@@ -10,8 +10,8 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "next": "^10.0.9",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "sass": "^1.27.0"
   }
 }
