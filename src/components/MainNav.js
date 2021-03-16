@@ -19,14 +19,32 @@ export default function MainNav() {
           <img src="/avatar-cheddev-spaced.png" />
         </span>
         <nav className="main-social-links">
-        <a
+          <a
+            href="https://github.com/ched-dev"
+            target="_blank"
+            rel="noopener noreferer"
+            title="Github: @ched-dev"
+          >
+            <i className="fa fa-github" />
+            <span className="sr-only">Github Repositories</span>
+          </a>
+          <a
             href="https://twitter.com/ched_dev"
             target="_blank"
             rel="noopener noreferer"
             title="Twitter: @ched_dev"
           >
             <i className="fa fa-twitter" />
-            <span className="sr-only">Twitter</span>
+            <span className="sr-only">Twitter Feed</span>
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UC4Z7bn3Iyj_FHNUT-RxDD-Q"
+            target="_blank"
+            rel="noopener noreferer"
+            title="YouTube Channel"
+          >
+            <i className="fa fa-youtube-play" />
+            <span className="sr-only">YouTube Channel</span>
           </a>
           <a
             href="https://twitch.com/ched_dev"
@@ -35,7 +53,7 @@ export default function MainNav() {
             title="Twitch: @ched_dev"
           >
             <i className="fa fa-twitch" />
-            <span className="sr-only">Twitch</span>
+            <span className="sr-only">Twitch Stream</span>
           </a>
         </nav>
       </section>
