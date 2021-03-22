@@ -67,7 +67,7 @@ const popularTags = getPopularTags(posts)
 export default function Projects() {
 
   return (
-    <Layout title="Projects">
+    <Layout title="Code Projects">
       <MainNav />
       <main className="content-container">
         <section className="section-header">
