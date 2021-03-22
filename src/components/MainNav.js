@@ -1,11 +1,44 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+
+const mainNavLinks = [
+  // {
+  //   name: 'Code in Bits',
+  //   uri: '/code/bits'
+  // },
+  {
+    name: 'Code Projects',
+    uri: '/code/projects'
+  },
+  // {
+  //   name: 'Code Challenges',
+  //   uri: '/code/challenges'
+  // },
+  // {
+  //   name: 'Code Live Streams',
+  //   uri: '/code/live-streams'
+  // },
+  // {
+  //   name: 'Interview Prep',
+  //   uri: '/code/interview-prep'
+  // }
+]
 
 export default function MainNav() {
-  const [showMobileNav, setShowMobileNav] = useState(false)
+  const [showMobileNav, setShowMobileNav] = useState(null)
+  const router = useRouter()
 
   const toggleMobileNav = (e) => {
     setShowMobileNav(!showMobileNav)
+  }
+
+  const isActiveClass = (pathname) => {
+    if (router.pathname.toLowerCase() === pathname) {
+      return 'is-active'
+    }
+
+    return ''
   }
 
   return (
@@ -16,12 +49,11 @@ export default function MainNav() {
           <i className={`fa fa-${showMobileNav ? 'times' : 'bars'}`} />
         </button>
         <nav className={`main-nav ${showMobileNav ? 'main-mobile-nav-expanded' : ''}`}>
-          {/* <Link href="/code/bits"><a>Code in Bits</a></Link> */}
-          <Link href="/code/projects"><a>Code Projects</a></Link>
-          {/* <Link href="/code/challenges"><a>Code Challenges</a></Link> */}
-          {/* <Link href="/code/live-streams"><a>Code Live Streams</a></Link> */}
-          
-          {/* <Link href="/code/interview-prep"><a>Interview Prep</a></Link> */}
+          {mainNavLinks.map(link => (
+            <Link key={link.uri} href={link.uri}>
+              <a className={isActiveClass(link.uri)}><span>{link.name}</span></a>
+            </Link>
+          ))}
         </nav>
       </div>
       <section className="main-footer">
