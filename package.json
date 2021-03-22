@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@feathersjs/client": "^4.5.11",
+    "@feathersjs/rest-client": "^4.5.11",
     "classnames": "^2.2.6",
     "next": "^10.0.9",
     "react": "^17.0.1",

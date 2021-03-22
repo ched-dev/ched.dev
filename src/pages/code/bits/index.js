@@ -6,6 +6,7 @@ import Tags from 'src/components/Tags'
 import Link from 'next/link'
 import localStorageUtil from 'src/utils/localStorage'
 import { getPopularTags } from 'src/utils/posts'
+import datastore from 'src/data/store'
 
 const posts = [
   {
@@ -75,16 +76,23 @@ const popularTags = getPopularTags(posts)
 export default function CodeBits() {
   const [contentFormat, setContentFormat] = useState('')
   const [expandedPosts, setExpandedPosts] = useState([])
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
     setContentFormat(localStorageUtil.getContentFormat())
   })
 
+  useEffect(async () => {
+    const result = await datastore.pages.find({})
+    console.log('pages', result.data)
+    setPosts(result.data)
+  }, [])
+
   const expandArticles = (post) => {
-    if (expandedPosts.includes(post.id)) {
-      setExpandedPosts(expandedPosts.filter(id => id !== post.id))
+    if (expandedPosts.includes(post._id)) {
+      setExpandedPosts(expandedPosts.filter(id => id !== post._id))
     } else {
-      setExpandedPosts(expandedPosts.concat(post.id))
+      setExpandedPosts(expandedPosts.concat(post._id))
     }
   }
 
@@ -102,19 +110,19 @@ export default function CodeBits() {
           {posts.map(post => (
             <article key={post.slug} className="articles-card">
               {post.thumbnail && <img src={post.thumbnail} className="articles-card-image" />}
-              <h2 className="articles-card-title"><span className="articles-card-id">{post.id}</span> {post.title}</h2>
+              <h2 className="articles-card-title"><span className="articles-card-id">{post.id}</span> {post.name}</h2>
               <Tags tags={post.tags} />
               {post.children && post.children.length && (
                 <details className="articles-card-details">
                   <summary className="articles-card-actions button" onClick={() => expandArticles(post)}>
-                    {post.children.length} Articles <i className={`fa fa-angle-${expandedPosts.includes(post.id) ? 'up' : 'down'}`} />
+                    {post.children.length} Articles <i className={`fa fa-angle-${expandedPosts.includes(post._id) ? 'up' : 'down'}`} />
                   </summary>
 
                   <section className="articles-card-link-list">
                     {post.children.map(article => (
-                      <Link href={'#'} key={article.id}>
+                      <Link href={'#'} key={article._id}>
                         <a className="articles-card-link-list-link">
-                          <span className="articles-card-id">{article.id}</span> {article.title}
+                          <span className="articles-card-id">{article.id}</span> {article.name}
                         </a>
                       </Link>
                     ))}

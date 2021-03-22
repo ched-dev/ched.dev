@@ -6,9 +6,23 @@ import { getPopularTags } from 'src/utils/posts'
 
 const posts = [
   {
+    slug: 'markdown-content-api',
+    title: 'Markdown Content API',
+    tags: ['javascript', 'feathers js', 'node.js', 'next.js'],
+    thumbnail: '/markdown-content-api-screenshot.png',
+    description: 'A Markdown Content API as a Headless CMS for my portfolio site. Goal is to consume content into this site.',
+    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRyDjp3JoiHvAudfRhalmrsg',
+    headers: [
+      'Feathers JS API backend connected to MongoDB',
+      'Next.js application for Content UI',
+      'Store data in Notebooks and Pages with nesting support',
+      'Serves HTML result from Markdown contents'
+    ]
+  },
+  {
     slug: 'warehouse-deals',
     title: 'Warehouse Deals',
-    tags: ['javascript', 'nextjs', 'nodejs', 'heroku', 'cheerio'],
+    tags: ['javascript', 'next.js', 'node.js', 'heroku', 'cheerio'],
     thumbnail: '/warehouse-deals-screenshot.png',
     description: 'An Amazon Product Price Scanner to watch for new and used deals',
     playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRwTsubtXe0OR4bdswKL39F-',
@@ -79,7 +93,7 @@ export default function Projects() {
                     </li>
                   ))}
                 </ul>
-                <a className="project-card-read-more" href={post.playlist} target="_blank" rel="noopener no referrer"><i className="fa fa-youtube-play" /> <span className="project-card-read-more-text">Watch <span className="hide-breakpoint-sm">Video Playback</span> on YouTube</span></a>
+                <a className="project-card-read-more" href={post.playlist} target="_blank" rel="noopener no referrer"><i className="fab fa-youtube" /> <span className="project-card-read-more-text">Watch <span className="hide-breakpoint-sm">Video Playback</span> on YouTube</span></a>
               </section>
             </article>
           ))}

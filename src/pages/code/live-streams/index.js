@@ -96,7 +96,7 @@ export default function LiveStreams() {
                     </li>
                   ))}
                 </ul>
-                <a className="project-card-read-more" href={bit.playlist} target="_blank" rel="noopener no referrer"><i className="fa fa-youtube-play" /> <span>Watch Playback on YouTube</span></a>
+                <a className="project-card-read-more" href={bit.playlist} target="_blank" rel="noopener no referrer"><i className="fab fa-youtube" /> <span>Watch Playback on YouTube</span></a>
               </section>
             </article>
           ))}

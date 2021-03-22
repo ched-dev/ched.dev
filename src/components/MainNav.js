@@ -25,7 +25,7 @@ export default function MainNav() {
             rel="noopener noreferer"
             title="Github: @ched-dev"
           >
-            <i className="fa fa-github" />
+            <i className="fab fa-github" />
             <span className="sr-only">Github Repositories</span>
           </a>
           <a
@@ -34,7 +34,7 @@ export default function MainNav() {
             rel="noopener noreferer"
             title="Twitter: @ched_dev"
           >
-            <i className="fa fa-twitter" />
+            <i className="fab fa-twitter" />
             <span className="sr-only">Twitter Feed</span>
           </a>
           <a
@@ -43,7 +43,7 @@ export default function MainNav() {
             rel="noopener noreferer"
             title="YouTube Channel"
           >
-            <i className="fa fa-youtube-play" />
+            <i className="fab fa-youtube" />
             <span className="sr-only">YouTube Channel</span>
           </a>
           <a
@@ -52,8 +52,17 @@ export default function MainNav() {
             rel="noopener noreferer"
             title="Twitch: @ched_dev"
           >
-            <i className="fa fa-twitch" />
+            <i className="fab fa-twitch" />
             <span className="sr-only">Twitch Stream</span>
+          </a>
+          <a
+            href="https://discord.gg/Z8CqGuJjrb"
+            target="_blank"
+            rel="noopener noreferer"
+            title="Discord Community"
+          >
+            <i className="fab fa-discord" />
+            <span className="sr-only">Discord Community</span>
           </a>
         </nav>
       </section>
