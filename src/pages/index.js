@@ -8,9 +8,9 @@ export default function Home() {
   return (
     <Layout title="Front End UI/UX Development & Prototyping">
       <MainNav />
-      <main className="content-container flexed-center">
+      <main className="content-container homepage-container flexed-center">
         {/* <i className="homepage-icon fa fa-code" /> */}
-        <h1 className="main-home-title">Front End UI/UX <br/> Web Development</h1>
+        <h1 className="main-home-title"><span>Front End UI/UX <br/> Web Development</span></h1>
         <p>Live streaming on Twitch Tuesdays and Fridays</p>
         <nav className="main-extended-social-links">
           <a

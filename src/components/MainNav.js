@@ -1,11 +1,21 @@
+import { useState } from 'react'
 import Link from 'next/link'
 
 export default function MainNav() {
+  const [showMobileNav, setShowMobileNav] = useState(false)
+
+  const toggleMobileNav = (e) => {
+    setShowMobileNav(!showMobileNav)
+  }
+
   return (
     <header className="main-header">
       <div className="main-header-links">
         <Link href="/" title="home"><a className="main-name">ched.dev</a></Link>
-        <nav className="main-nav">
+        <button className="main-mobile-nav-trigger" onClick={toggleMobileNav}>
+          <i className={`fa fa-${showMobileNav ? 'times' : 'bars'}`} />
+        </button>
+        <nav className={`main-nav ${showMobileNav ? 'main-mobile-nav-expanded' : ''}`}>
           {/* <Link href="/code/bits"><a>Code in Bits</a></Link> */}
           <Link href="/code/projects"><a>Code Projects</a></Link>
           {/* <Link href="/code/challenges"><a>Code Challenges</a></Link> */}
