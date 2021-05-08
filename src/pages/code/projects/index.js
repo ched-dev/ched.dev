@@ -6,6 +6,36 @@ import { getPopularTags } from 'src/utils/posts'
 
 const posts = [
   {
+    slug: 'obs-tasks',
+    title: 'OBS Tasks Overlay',
+    tags: ['obs', 'next.js', 'react', 'tmi.js', 'tailwind css', 'open source'],
+    thumbnail: '/obs-tasks-screenshot.png',
+    description: 'A browser application to show Tasks in an OBS Browser Source, controlled via Twitch chat commands.',
+    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRw70oamqirzMIiggPxsz6sV',
+    source: 'https://github.com/ched-dev/obs-tasks-overlay',
+    headers: [
+      'Next.js boilerplate with Tailwind CSS for styling',
+      'LocalStorage to save all data locally',
+      'Flexible customization via query parameters in URL',
+      'Nothing to install, download, or run locally'
+    ]
+  },
+  {
+    slug: 'codepow',
+    title: 'CodePow.io Component Library',
+    tags: ['react', 'tailwind css', 'typescript', 'documentation'],
+    thumbnail: '/codepow-screenshot.png',
+    description: 'A UI Style Guide and Component library for the CodePow.io website.',
+    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRzmGPrfHebPfRHkORNgy_9Y',
+    website: 'https://codepow.io/styles',
+    headers: [
+      'UI Components built in React, TypeScript, and Tailwind CSS',
+      'Documentation website with code samples and previews',
+      'Built from an Adobe XD Design Spec',
+      'A copy/pasters dream!'
+    ]
+  },
+  {
     slug: 'markdown-content-api',
     title: 'Markdown Content API',
     tags: ['javascript', 'feathers js', 'node.js', 'next.js'],
@@ -93,7 +123,31 @@ export default function Projects() {
                     </li>
                   ))}
                 </ul>
-                <a className="project-card-read-more" href={post.playlist} target="_blank" rel="noopener no referrer"><i className="fab fa-youtube" /> <span className="project-card-read-more-text">Watch <span className="hide-breakpoint-sm">Video Playback</span> on YouTube</span></a>
+                {post.website && (
+                  <a
+                    className="project-card-read-more"
+                    href={post.website}
+                    target="_blank" rel="noopener no referrer"
+                  >
+                    <i className="fa fa-paperclip" /> <span className="project-card-read-more-text">View Website</span>
+                  </a>
+                )}
+                {post.source && (
+                  <a
+                    className="project-card-read-more"
+                    href={post.source}
+                    target="_blank" rel="noopener no referrer"
+                  >
+                    <i className="fa fa-code-branch" /> <span className="project-card-read-more-text">View Source</span>
+                  </a>
+                )}
+                <a
+                  className="project-card-read-more"
+                  href={post.playlist}
+                  target="_blank" rel="noopener no referrer"
+                >
+                  <i className="fab fa-youtube" /> <span className="project-card-read-more-text">Watch <span className="hide-breakpoint-sm">Video Playback</span> on YouTube</span>
+                </a>
               </section>
             </article>
           ))}
