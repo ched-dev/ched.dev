@@ -6,6 +6,22 @@ import { getPopularTags } from 'src/utils/posts'
 
 const posts = [
   {
+    slug: 'shredlove',
+    title: 'Next.js + Netlify CMS Static Site',
+    tags: ['static site', 'next.js', 'react', 'netlify cms'],
+    thumbnail: '/shredlove-screenshot.png',
+    description: 'A simple content management system built to present externally hosted media on Vimeo and YouTube using some custom built inputs.',
+    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRz_-UlSGDlLw35bHhYlj3x9',
+    source: 'https://github.com/chadwithuhc/shredlove.com',
+    website: 'https://shredlove.com',
+    headers: [
+      'Next.js provides static site generation',
+      'Netlify CMS for Custom Input Widgets and Admin UI',
+      'Creates embed codes for Vimeo and YouTube',
+      'Data is stored in JSON files within the repository'
+    ]
+  },
+  {
     slug: 'obs-tasks',
     title: 'OBS Tasks Overlay',
     tags: ['obs', 'next.js', 'react', 'tmi.js', 'tailwind css', 'open source'],
@@ -17,7 +33,7 @@ const posts = [
       'Next.js boilerplate with Tailwind CSS for styling',
       'LocalStorage to save all data locally',
       'Flexible customization via query parameters in URL',
-      'Nothing to install, download, or run locally'
+      'Nothing to install or download locally or on a server'
     ]
   },
   {
@@ -25,7 +41,7 @@ const posts = [
     title: 'CodePow.io Component Library',
     tags: ['react', 'tailwind css', 'typescript', 'documentation'],
     thumbnail: '/codepow-screenshot.png',
-    description: 'A UI Style Guide and Component library for the CodePow.io website.',
+    description: 'A UI Style Guide and Component library for the CodePow.io website based on a Design System.',
     playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRzmGPrfHebPfRHkORNgy_9Y',
     website: 'https://codepow.io/styles',
     headers: [
@@ -54,7 +70,7 @@ const posts = [
     title: 'Warehouse Deals',
     tags: ['javascript', 'next.js', 'node.js', 'heroku', 'cheerio'],
     thumbnail: '/warehouse-deals-screenshot.png',
-    description: 'An Amazon Product Price Scanner to watch for new and used deals',
+    description: 'An Amazon Product Price Scanner to watch for new and used deals by target price',
     playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRwTsubtXe0OR4bdswKL39F-',
     headers: [
       'Next.js application with Node.js API endpoints',
@@ -83,6 +99,7 @@ const posts = [
     thumbnail: '/css3-colorpicker-screenshot.png',
     description: 'An Open Source CSS Color Picker Component with bindings for React',
     playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRwXj6px1bHcSh6HHo94zKKu',
+    source: 'https://github.com/chadwithuhc/css3-color-picker',
     headers: [
       'Written with vanilla JS for flexible embedding',
       'Add to React applications with included wrapper component',
