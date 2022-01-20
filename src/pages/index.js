@@ -1,8 +1,6 @@
 import Layout from 'src/components/Layout'
 import MainNav from 'src/components/MainNav'
 import Footer from 'src/components/Footer'
-import Link from 'next/link'
-import Tags from 'src/components/Tags'
 
 export default function Home() {
   return (
@@ -11,7 +9,7 @@ export default function Home() {
       <main className="content-container homepage-container flexed-center">
         {/* <i className="homepage-icon fa fa-code" /> */}
         <h1 className="main-home-title"><span>Front End UI/UX <br/> Web Development</span></h1>
-        <p>Live streaming on Twitch Tuesdays and Fridays</p>
+        <p>Live streaming on Twitch spontaneously</p>
         <nav className="main-extended-social-links">
           <a
             href="https://github.com/ched-dev"
