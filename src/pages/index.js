@@ -1,15 +1,19 @@
 import Layout from 'src/components/Layout'
 import MainNav from 'src/components/MainNav'
 import Footer from 'src/components/Footer'
+import Tags from 'src/components/Tags'
 
 export default function Home() {
   return (
-    <Layout title="Front End UI/UX Development & Prototyping">
+    <Layout title="Live Coding websites &
+    Open Source projects">
       <MainNav />
       <main className="content-container homepage-container flexed-center">
         {/* <i className="homepage-icon fa fa-code" /> */}
-        <h1 className="main-home-title"><span>Front End UI/UX <br/> Web Development</span></h1>
-        <p>Live streaming on Twitch spontaneously</p>
+        <h1 className="main-home-title"><span>Live Coding websites & <br/>Open Source projects</span></h1>
+        <p>
+          <Tags tags={["javascript", "react", "css", "node.js", "next.js", "jam stack"]} />
+        </p>
         <nav className="main-extended-social-links">
           <a
             href="https://github.com/ched-dev"
@@ -68,7 +72,7 @@ export default function Home() {
             <i className="fab fa-discord" />
             <p>
               <span>Discord Community</span>
-              Chatting with the community and live stream alerts
+              Connecting with the community and live stream alerts
             </p>
           </a>
         </nav>
