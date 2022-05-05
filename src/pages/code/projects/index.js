@@ -68,18 +68,17 @@ const posts = [
     ]
   },
   {
-    slug: 'codepow',
-    title: 'CodePow.io Component Library',
-    tags: ['react', 'tailwind css', 'typescript', 'documentation'],
-    thumbnail: '/codepow-screenshot.png',
-    description: 'A UI Style Guide and Component library for the CodePow.io website based on a Design System.',
-    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRzmGPrfHebPfRHkORNgy_9Y',
-    website: 'https://codepow.io/styles',
+    slug: 'warehouse-deals',
+    title: 'Warehouse Deals',
+    tags: ['javascript', 'next.js', 'node.js', 'heroku', 'cheerio'],
+    thumbnail: '/warehouse-deals-screenshot.png',
+    description: 'An Amazon Product Price Scanner to watch for new and used deals by target price',
+    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRwTsubtXe0OR4bdswKL39F-',
     headers: [
-      'UI Components built in React, TypeScript, and Tailwind CSS',
-      'Documentation website with code samples and previews',
-      'Built from an Adobe XD Design Spec',
-      'A copy/pasters dream!'
+      'Next.js application with Node.js API endpoints',
+      'Heroku Scheduler pings hourly for prices',
+      'Page scraping with cheerio',
+      'Text message alerting for target price'
     ]
   },
   {
@@ -96,48 +95,49 @@ const posts = [
       'Serves HTML result from Markdown contents'
     ]
   },
-  {
-    slug: 'warehouse-deals',
-    title: 'Warehouse Deals',
-    tags: ['javascript', 'next.js', 'node.js', 'heroku', 'cheerio'],
-    thumbnail: '/warehouse-deals-screenshot.png',
-    description: 'An Amazon Product Price Scanner to watch for new and used deals by target price',
-    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRwTsubtXe0OR4bdswKL39F-',
-    headers: [
-      'Next.js application with Node.js API endpoints',
-      'Heroku Scheduler pings hourly for prices',
-      'Page scraping with cheerio',
-      'Text message alerting for target price'
-    ]
-  },
-  {
-    slug: 'studybook-app',
-    title: 'Studybook App',
-    tags: ['javascript', 'es6', 'api', 'postgres', 'knex', 'oauth', 'react'],
-    thumbnail: '/studybook-screenshot.png',
-    description: 'A notebook for studying Terms, Questions, and Answers',
-    headers: [
-      'Associate related Terms, Topics and Questions through an interface',
-      'Implements a beginner friendly API with Postgres and Knex',
-      'Public and Private notebooks available with Github Auth',
-      'Administrative tools to easily manage missing data'
-    ]
-  },
-  {
-    slug: 'open-source-css-color-picker',
-    title: 'CSS Color Picker Component',
-    tags: ['open source', 'css', 'component', 'javascript'],
-    thumbnail: '/css3-colorpicker-screenshot.png',
-    description: 'An Open Source CSS Color Picker Component with bindings for React',
-    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRwXj6px1bHcSh6HHo94zKKu',
-    source: 'https://github.com/chadwithuhc/css3-color-picker',
-    headers: [
-      'Written with vanilla JS for flexible embedding',
-      'Add to React applications with included wrapper component',
-      'Pass in your own color set or use CSS3 colors',
-      'Configurable options for ease of use'
-    ]
-  },
+  // {
+  //   slug: 'codepow',
+  //   title: 'CodePow.io Component Library',
+  //   tags: ['react', 'tailwind css', 'typescript', 'documentation'],
+  //   thumbnail: '/codepow-screenshot.png',
+  //   description: 'A UI Style Guide and Component library for the CodePow.io website based on a Design System.',
+  //   playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRzmGPrfHebPfRHkORNgy_9Y',
+  //   website: 'https://codepow.io/styles',
+  //   headers: [
+  //     'UI Components built in React, TypeScript, and Tailwind CSS',
+  //     'Documentation website with code samples and previews',
+  //     'Built from an Adobe XD Design Spec',
+  //     'A copy/pasters dream!'
+  //   ]
+  // },
+  // {
+  //   slug: 'studybook-app',
+  //   title: 'Studybook App',
+  //   tags: ['javascript', 'es6', 'api', 'postgres', 'knex', 'oauth', 'react'],
+  //   thumbnail: '/studybook-screenshot.png',
+  //   description: 'A notebook for studying Terms, Questions, and Answers',
+  //   headers: [
+  //     'Associate related Terms, Topics and Questions through an interface',
+  //     'Implements a beginner friendly API with Postgres and Knex',
+  //     'Public and Private notebooks available with Github Auth',
+  //     'Administrative tools to easily manage missing data'
+  //   ]
+  // },
+  // {
+  //   slug: 'open-source-css-color-picker',
+  //   title: 'CSS Color Picker Component',
+  //   tags: ['open source', 'css', 'component', 'javascript'],
+  //   thumbnail: '/css3-colorpicker-screenshot.png',
+  //   description: 'An Open Source CSS Color Picker Component with bindings for React',
+  //   playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRwXj6px1bHcSh6HHo94zKKu',
+  //   source: 'https://github.com/chadwithuhc/css3-color-picker',
+  //   headers: [
+  //     'Written with vanilla JS for flexible embedding',
+  //     'Add to React applications with included wrapper component',
+  //     'Pass in your own color set or use CSS3 colors',
+  //     'Configurable options for ease of use'
+  //   ]
+  // },
 ]
 
 const popularTags = getPopularTags(posts)

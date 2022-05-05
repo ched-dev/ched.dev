@@ -1,0 +1,141 @@
+$image-gap: 8rem
+$image-gap-space: 6rem
+$image-gap-plus: $image-gap + $image-gap-space
+
+.book-grid
+  display: grid
+  grid-template-columns: 1fr
+  gap: 1rem
+  // @media (max-width: $breakpoint-md)
+  //   grid-template-columns: 1fr
+  // @media (max-width: $breakpoint-lg)
+  //   grid-template-columns: 1fr 1fr
+.book-card
+  position: relative
+  display: flex
+  flex-direction: column
+  justify-items: start
+  max-width: 50rem
+  margin: 3rem 2rem 2rem 0
+  padding-left: $image-gap-plus
+  background: $brand-secondary
+  @media (max-width: $breakpoint-md)
+    margin-left: auto
+    margin-right: auto
+    padding-left: 0
+.book-card-header
+  display: flex
+  flex-direction: column
+  margin: -4.8rem 0 0 0
+  padding: 1.4rem 1rem
+  @media (max-width: $breakpoint-lg)
+    padding: 1.4rem 0.6rem
+.book-card-title
+  grid-area: title
+  position: relative
+  font-family: 'Zilla Slab', serif
+  margin: 0
+.book-card-actions
+  grid-area: actions
+  // font-family: 'Zilla Slab', cursive
+  font-family: 'Economica', sans-serif
+  text-transform: uppercase
+  font-size: 1.2rem
+  color: $brand-tertiary !important
+  margin-bottom: -1.2rem
+  background: $background-color !important
+  padding: 0.5rem 2rem 0.5rem
+.book-card-image
+  position: absolute
+  top: -4rem
+  left: 0
+  width: $image-gap-plus
+  margin-top: 0
+  border: solid 10px $brand-tertiary
+  @media (max-width: $breakpoint-md)
+    position: static
+    display: block
+    width: 120%
+    margin-left: -10%
+.book-card-description
+  // margin-top: 0
+.book-card-body
+  padding: 0 4rem 2rem 1rem
+  @media (max-width: $breakpoint-md)
+    padding-left: 2rem
+.book-card-read-more:not([href])
+  cursor: default
+  .book-card-read-more-text
+    display: none
+  &::after
+    content: 'Coming Soon'
+    text-transform: uppercase
+    opacity: 0.8
+// .book-card
+//   display: flex
+//   justify-items: start
+//   max-width: 60rem
+//   margin: 2rem 2rem 2rem $image-gap
+//   background: $brand-secondary
+//   @media (max-width: $breakpoint-lg)
+//     margin: 0
+// .book-card-header
+//   display: flex
+//   flex-direction: column
+//   margin: -3.1rem ($image-gap-space * 2) 0 (-$image-gap)
+//   padding: 1.4rem 1rem
+//   width: $image-gap
+//   .content-tags, .book-card-title
+//     width: 60rem
+// .book-card-title
+//   grid-area: title
+//   position: relative
+//   font-family: 'Zilla Slab', serif
+//   margin: 0
+// .book-card-actions
+//   grid-area: actions
+//   // font-family: 'Zilla Slab', cursive
+//   font-family: 'Economica', sans-serif
+//   text-transform: uppercase
+//   font-size: 1.2rem
+//   color: $brand-tertiary !important
+//   margin-bottom: -1.2rem
+//   background: $background-color !important
+//   padding: 0.5rem 2rem 0.5rem
+// .book-card-image
+//   width: $image-gap-plus
+//   margin-top: 1rem
+//   border: solid 10px $brand-tertiary
+//   @media (max-width: $breakpoint-sm)
+//     width: 100%
+// .book-card-body
+//   padding: 0 0 2rem 2rem
+//   align-self: center
+.book-card-read-more
+  font-size: 1.2rem
+  text-decoration: none
+  display: flex
+  align-items: center
+  .book-card-read-more-text
+    border-bottom: solid 3px $brand-tertiary
+  .fa-youtube
+    font-size: 3rem
+    margin-right: 1rem
+  .fa-code-branch
+    font-size: 2.8rem
+    margin-right: 1.7rem
+    margin-left: 0.5rem
+    transform: rotate(90deg)
+  .fa-paperclip
+    font-size: 2rem
+    margin-right: 1.4rem
+    margin-left: 0.8rem
+  @media (max-width: $breakpoint-sm)
+    font-size: 1.2rem
+  + .book-card-read-more
+    margin-top: 0.4rem
+.book-card-disclosure
+  display: block
+  margin: 2rem 0 -1rem
+  color: $brand-tertiary
+  font-style: italic

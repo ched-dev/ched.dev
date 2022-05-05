@@ -11,6 +11,10 @@ const mainNavLinks = [
     name: 'Code Projects',
     uri: '/code/projects'
   },
+  {
+    name: 'Book Assessments',
+    uri: '/books'
+  },
   // {
   //   name: 'Code Challenges',
   //   uri: '/code/challenges'
