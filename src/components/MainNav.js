@@ -15,6 +15,10 @@ const mainNavLinks = [
     name: 'Book Assessments',
     uri: '/books'
   },
+  {
+    name: 'Study Sessions',
+    uri: '/code/study-sessions'
+  },
   // {
   //   name: 'Code Challenges',
   //   uri: '/code/challenges'
