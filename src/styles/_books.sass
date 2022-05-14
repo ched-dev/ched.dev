@@ -15,9 +15,8 @@ $image-gap-plus: $image-gap + $image-gap-space
   display: flex
   flex-direction: column
   justify-items: start
-  max-width: 50rem
-  margin: 3rem 2rem 2rem 0
-  padding-left: $image-gap-plus
+  max-width: 40rem
+  margin: 3rem 2rem 2rem ($image-gap-plus + 2rem)
   background: $brand-secondary
   @media (max-width: $breakpoint-md)
     margin-left: auto
@@ -47,8 +46,8 @@ $image-gap-plus: $image-gap + $image-gap-space
   padding: 0.5rem 2rem 0.5rem
 .book-card-image
   position: absolute
-  top: -4rem
-  left: 0
+  top: -1rem
+  left: -$image-gap-plus
   width: $image-gap-plus
   margin-top: 0
   border: solid 10px $brand-tertiary
@@ -58,7 +57,7 @@ $image-gap-plus: $image-gap + $image-gap-space
     width: 120%
     margin-left: -10%
 .book-card-description
-  // margin-top: 0
+  margin-top: 0
 .book-card-body
   padding: 0 4rem 2rem 1rem
   @media (max-width: $breakpoint-md)

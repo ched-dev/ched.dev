@@ -151,7 +151,7 @@ export default function Projects() {
         <section className="section-header">
           <div className="sticky-header">
             <h1 className="section-title">Code Projects</h1>
-            <p className="section-subtitle">JavaScript Applications, Prototypes, and Playgrounds</p>
+            <p className="section-subtitle">JavaScript Web Applications, Prototypes, and Playgrounds</p>
           </div>
           <p className="section-tags">Topics:<br/><Tags size="s" tags={popularTags.map(post => post.tag)} urlBase="/code/live-streams" /></p>
         </section>
