@@ -31,10 +31,10 @@ const mainNavLinks = [
   //   name: 'Code Live Streams',
   //   uri: '/code/live-streams'
   // },
-  // {
-  //   name: 'Interview Prep',
-  //   uri: '/code/interview-prep'
-  // }
+  {
+    name: 'Mentoring',
+    uri: '/mentoring'
+  }
 ]
 
 export default function MainNav() {
