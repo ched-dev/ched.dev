@@ -17,3 +17,20 @@
     border-radius: 4px
   &:focus
     border-color: $brand-tertiary
+.button-callout
+  font-size: 1.6rem
+  text-decoration: none
+  display: flex
+  align-items: center
+  color: $brand-primary
+  .button-callout-text
+    border-bottom: solid 3px $brand-primary
+  .fa-inbox
+    font-size: 3rem
+    margin-right: 1rem
+  @media (max-width: $breakpoint-sm)
+    font-size: 1.4rem
+    .fa-inbox
+      font-size: 2rem
+  + .button-callout
+    margin-top: 0.4rem

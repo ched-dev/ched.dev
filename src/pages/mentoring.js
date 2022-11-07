@@ -11,7 +11,7 @@ export default function Home() {
       <main className="content-container">
         <section className="section-header">
           <div className="sticky-header">
-            <h1 className="section-title">Code & Career Mentoring</h1>
+            <h1 className="section-title section-title--sm">Code & Career Mentoring</h1>
             <p className="section-subtitle">Help with code, career, or pesky coworkers</p>
           </div>
         </section>
@@ -23,13 +23,16 @@ export default function Home() {
           <h2>How much does it cost?</h2>
           <p>I charge hourly with a one hour minimum. Cost is based on your location and complexity of the problem. When you reach out to me I will give you a proper estimate before we start.</p>
           <h2>How do we get started?</h2>
-          <a
-            className="project-card-read-more"
-            href={`mailto:${mentoringEmail}?subject=Mentoring Request&body=Include your location/time zone and what you need help with:`}
-            target="_blank" rel="noopener noreferrer"
-          >
-            <i className="fa fa-inbox" /> <span className="project-card-read-more-text">Inquire about Mentoring with me</span>
-          </a>
+          <div>
+            <a
+              className="button-callout"
+              href={`mailto:${mentoringEmail}?subject=Mentoring Request&body=Include your location/time zone and what you need help with:`}
+              target="_blank" rel="noopener noreferrer"
+            >
+              <i className="fa fa-inbox" /> <span className="button-callout-text">Inquire about Mentoring</span>
+            </a>
+            <p className="text-muted">Include your location/time zone and what you need help with to get a fast estimate.</p>
+          </div>
         </section>
         <Footer />
       </main>
