@@ -19,10 +19,10 @@ const mainNavLinks = [
   //   name: 'Book Assessments',
   //   uri: '/books'
   // },
-  {
-    name: 'Study Sessions',
-    uri: '/code/study-sessions'
-  },
+  // {
+  //   name: 'Study Sessions',
+  //   uri: '/code/study-sessions'
+  // },
   // {
   //   name: 'Code Challenges',
   //   uri: '/code/challenges'
@@ -92,7 +92,7 @@ export default function MainNav() {
             <span className="sr-only">Twitter Feed</span>
           </a>
           <a
-            href="https://www.youtube.com/channel/UC4Z7bn3Iyj_FHNUT-RxDD-Q"
+            href="https://www.youtube.com/@ched_dev"
             target="_blank"
             rel="noopener noreferer"
             title="YouTube Channel"

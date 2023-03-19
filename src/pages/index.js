@@ -5,14 +5,14 @@ import Tags from 'src/components/Tags'
 
 export default function Home() {
   return (
-    <Layout title="Live Coding websites &
-    Open Source projects">
+    <Layout title="Live coding web apps &
+    open source projects">
       <MainNav />
       <main className="content-container homepage-container flexed-center">
         {/* <i className="homepage-icon fa fa-code" /> */}
-        <h1 className="main-home-title"><span>Live Coding web apps with <br/>front end technologies</span></h1>
-        <p>
-          <Tags tags={["javascript", "typescript", "react", "css", "node.js", "next.js"]} />
+        <h1 className="main-home-title"><span>Live coding web apps with <br/>front end technologies</span></h1>
+        <p className="main-home-tags">
+          <Tags tags={["javascript", "typescript", "react", "css", "node.js", "next.js", "redwoodjs", "directus.io"]} />
         </p>
         <nav className="main-extended-social-links">
           <a
@@ -28,7 +28,7 @@ export default function Home() {
             </p>
           </a>
           <a
-            href="https://www.youtube.com/channel/UC4Z7bn3Iyj_FHNUT-RxDD-Q"
+            href="https://www.youtube.com/@ched_dev"
             target="_blank"
             rel="noopener noreferer"
             title="YouTube Channel"

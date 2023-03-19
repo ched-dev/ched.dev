@@ -6,22 +6,6 @@ import { getPopularTags } from 'src/utils/posts'
 
 const posts = [
   {
-    slug: 'obs-overlays',
-    title: 'Twitch Event and Chat Command Overlays in OBS',
-    tags: ['obs', 'tau', 'tmi.js', 'express', 'socket.io', 'web sockets', 'esmodules'],
-    thumbnail: '/obs-overlays-screenshot.png',
-    description: 'A browser source for OBS to display overlays for Follow, Subscribe, Channel Redemption, etc. and chat commands (!clap) with sounds. Also includes a chat bot!',
-    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRw3DzXr6tOPcVIHJX32DifU',
-    source: 'https://github.com/ched-dev/obs-overlays',
-    headers: [
-      'Twitch API Unifier (TAU) for Twitch Events subscriptions',
-      'tmi.js for Chat integration and bot messages',
-      'Configuration based listeners for Event and Chat Commands',
-      'Client Commands for custom functionality (sounds, notifications)',
-      'Runs locally on streamers PC'
-    ]
-  },
-  {
     slug: 'mega-api',
     title: 'MegaAPI: A Headless CMS and CRUD API in one',
     tags: ['javascript', 'directus.io', 'headless cms', 'crud'],
@@ -65,6 +49,22 @@ const posts = [
       'LocalStorage to save all data locally',
       'Flexible customization via query parameters in URL',
       'Nothing to install or download locally or on a server'
+    ]
+  },
+  {
+    slug: 'obs-overlays',
+    title: 'Twitch Event and Chat Command Overlays in OBS',
+    tags: ['obs', 'tau', 'tmi.js', 'express', 'socket.io', 'web sockets', 'esmodules'],
+    thumbnail: '/obs-overlays-screenshot.png',
+    description: 'A browser source for OBS to display overlays for Follow, Subscribe, Channel Redemption, etc. and chat commands (!clap) with sounds. Also includes a chat bot!',
+    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRw3DzXr6tOPcVIHJX32DifU',
+    source: 'https://github.com/ched-dev/obs-overlays',
+    headers: [
+      'Twitch API Unifier (TAU) for Twitch Events subscriptions',
+      'tmi.js for Chat integration and bot messages',
+      'Configuration based listeners for Event and Chat Commands',
+      'Client Commands for custom functionality (sounds, notifications)',
+      'Runs locally on streamers PC'
     ]
   },
   {
@@ -151,7 +151,7 @@ export default function Projects() {
         <section className="section-header">
           <div className="sticky-header">
             <h1 className="section-title">Code Projects</h1>
-            <p className="section-subtitle">JavaScript Web Applications, Prototypes, and Playgrounds</p>
+            <p className="section-subtitle">JavaScript Web Applications, Prototypes, and side projects</p>
           </div>
           <p className="section-tags">Topics:<br/><Tags size="s" tags={popularTags.map(post => post.tag)} urlBase="/code/live-streams" /></p>
         </section>
