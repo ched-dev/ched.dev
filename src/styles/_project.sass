@@ -2,6 +2,8 @@ $image-gap: 20rem
 $image-gap-space: 2rem
 $image-gap-plus: $image-gap + $image-gap-space
 
+$header-size: 8rem
+
 .project-grid
   display: grid
   grid-template-columns: 1fr
@@ -17,20 +19,24 @@ $image-gap-plus: $image-gap + $image-gap-space
   justify-items: start
   max-width: 40rem
   margin: 3rem $image-gap 2rem 2rem
-  background: $brand-secondary
+  // background: $brand-secondary-darkened
+  border: dashed 2px $brand-tertiary
+  border-radius: 4px
   @media (max-width: $breakpoint-lg)
     margin-left: 2rem
     margin-right: 2rem
   @media (max-width: $breakpoint-md)
     margin-left: auto
     margin-right: auto
+    margin-bottom: $header-size
 .project-card-header
   display: flex
   flex-direction: column
-  margin: -4.8rem 0 0 0
+  margin: -5.5rem 0 0 0
   padding: 1.4rem 1rem
   @media (max-width: $breakpoint-lg)
-    padding: 1.4rem 0.6rem
+    padding: 1.4rem 0.2rem
+    margin-top: -$header-size
 .project-card-title
   grid-area: title
   position: relative
@@ -52,7 +58,11 @@ $image-gap-plus: $image-gap + $image-gap-space
   right: (-$image-gap)
   width: $image-gap-plus
   margin-top: 2rem
-  border: solid 10px $brand-tertiary
+  // border: solid 10px $brand-tertiary
+  padding: 5px
+  background-color: $background-color
+  border: dashed 2px $brand-secondary
+  border-radius: 4px
   @media (max-width: $breakpoint-lg)
     display: none
   @media (max-width: $breakpoint-md)
@@ -66,8 +76,12 @@ $image-gap-plus: $image-gap + $image-gap-space
     margin-top: 2rem
 .project-card-description
   // margin-top: 0
+  line-height: 1rem
 .project-card-body
   padding: 0 4rem 2rem 2rem
+  @media (max-width: $breakpoint-sm)
+    padding-left: 1rem
+    padding-right: 1rem
 .project-card-read-more:not([href])
   cursor: default
   .project-card-read-more-text
@@ -117,24 +131,24 @@ $image-gap-plus: $image-gap + $image-gap-space
 //   padding: 0 0 2rem 2rem
 //   align-self: center
 .project-card-read-more
-  font-size: 1.4rem
+  font-size: 1rem
   text-decoration: none
   display: flex
   align-items: center
   .project-card-read-more-text
     border-bottom: solid 3px $brand-tertiary
   .fa-youtube, .fa-inbox
-    font-size: 3rem
+    font-size: 2rem
     margin-right: 1rem
   .fa-code-branch
-    font-size: 2.8rem
-    margin-right: 1.7rem
-    margin-left: 0.5rem
+    font-size: 1.8rem
+    margin-right: 1.6rem
+    margin-left: 0.4rem
     transform: rotate(90deg)
   .fa-paperclip
-    font-size: 2.6rem
-    margin-right: 1.4rem
-    margin-left: 0.8rem
+    font-size: 1.6rem
+    margin-right: 1.3rem
+    margin-left: 0.5rem
   @media (max-width: $breakpoint-sm)
     font-size: 1.2rem
   + .project-card-read-more
