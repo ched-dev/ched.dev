@@ -11,7 +11,7 @@ export default function Layout({ title, children = [] }) {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#daa520" />
         <meta name="msapplication-TileColor" content="#daa520" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#222222" />
       </Head>
       {children}
     </div>
