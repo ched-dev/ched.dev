@@ -51,7 +51,7 @@ export default function Home() {
               Tweets about code, streaming, and the like
             </p>
           </a>
-          <a
+          {/* <a
             href="https://discord.gg/Z8CqGuJjrb"
             target="_blank"
             rel="noopener noreferer"
@@ -62,7 +62,7 @@ export default function Home() {
               <span>Discord Community</span>
               Connecting with the community and live stream alerts
             </p>
-          </a>
+          </a> */}
           <a
             href="https://github.com/ched-dev"
             target="_blank"

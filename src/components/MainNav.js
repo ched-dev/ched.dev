@@ -109,7 +109,7 @@ export default function MainNav() {
             <i className="fab fa-twitch" />
             <span className="sr-only">Twitch Stream</span>
           </a>
-          <a
+          {/* <a
             href="https://discord.gg/Z8CqGuJjrb"
             target="_blank"
             rel="noopener noreferer"
@@ -117,7 +117,7 @@ export default function MainNav() {
           >
             <i className="fab fa-discord" />
             <span className="sr-only">Discord Community</span>
-          </a>
+          </a> */}
         </nav>
       </section>
     </header>
