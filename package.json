@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start -p $PORT",
+    "dev": "NODE_OPTIONS='--openssl-legacy-provider' next dev",
+    "build": "NODE_OPTIONS='--openssl-legacy-provider' next build",
+    "start": "NODE_OPTIONS='--openssl-legacy-provider' next start -p $PORT",
     "deploy": "echo 'Deployed on Vercel. Commit latest work.'"
   },
   "dependencies": {
@@ -17,5 +17,8 @@
     "react-dom": "^17.0.1",
     "sass": "^1.27.0",
     "yarn": "^1.22.17"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
