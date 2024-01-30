@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p $PORT",
-    "deploy": "git push heroku main"
+    "deploy": "echo 'Deployed on Vercel. Commit latest work.'"
   },
   "dependencies": {
     "@feathersjs/client": "^4.5.11",

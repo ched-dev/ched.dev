@@ -6,13 +6,13 @@ import Tags from 'src/components/Tags'
 export default function Home() {
   return (
     <Layout title="Live coding web apps &
-    open source projects">
+    products">
       <MainNav />
       <main className="content-container homepage-container flexed-center">
         {/* <i className="homepage-icon fa fa-code" /> */}
         <h1 className="main-home-title"><span>Live coding web apps with <br/>front end technologies</span></h1>
         <p className="main-home-tags">
-          <Tags tags={["javascript", "typescript", "react", "css", "node.js", "next.js", "redwoodjs", "directus.io"]} />
+          <Tags tags={["javascript", "typescript", "react", "svelte", "tailwind css", "redwoodjs", "directus.io", "apis"]} />
         </p>
         <nav className="main-extended-social-links">
           <a

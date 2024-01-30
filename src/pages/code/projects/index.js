@@ -6,18 +6,46 @@ import { getPopularTags } from 'src/utils/posts'
 
 const posts = [
   {
+    slug: 'unboxed-deals',
+    title: 'Unboxed Deals an Amazon Warehouse deals site',
+    tags: ['typescript', 'redwoodjs', 'prisma', 'graphql', 'node.js'],
+    thumbnail: '/unboxed-deals-screenshot.png',
+    description: 'A website for Amazon Warehouse deals on used and open boxed items. Running as a beta for the past year, I am currently hardening the product for public users in 2024.',
+    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRyo_bPWNEcaKv-Sctm1iTOY',
+    headers: [
+      'RedwoodJS app with TypeScript, Prisma, GraphQL, and React',
+      'Product pricing history and alerts',
+      'Users can add new products',
+      'Content articles & email marketing built in'
+    ]
+  },
+  {
     slug: 'mega-api',
-    title: 'MegaAPI: A Headless CMS and CRUD API in one',
-    tags: ['javascript', 'directus.io', 'headless cms', 'crud'],
+    title: 'Mega API: A Headless CMS and Backend as a Service',
+    tags: ['javascript', 'directus.io', 'headless cms', 'backend as a service', 'apis'],
     thumbnail: '/mega-api-screenshot.png',
-    description: 'One API, two (ore more) apps! We needed a CRUD API for an upcoming project, and a Headless CMS for our new media blog. We\'re integrating the two into one MegaAPI.',
+    description: 'A directus.io install serving up data for several of my applications. Provides basic REST API\'s for content sites, image hosting, and automation through flows.',
     playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRzj31CiA5HGBRwfmWXYU-Np',
     // source: 'https://github.com/ched-dev/obs-overlays',
     headers: [
-      'A comparison of Headless CMS\'s directus.io vs strapi.io',
-      'Building custom data models via Headless CMS\'s',
-      'Integrating front end via next.js or gridsome',
-      'Includes authentication and authorization per app'
+      'Manage custom data models accessed via REST or Websockets',
+      'Stores files in Amazon S3 for upcoming media blog',
+      'Automates actions through flows, a low-code workflow manager',
+      'Allows authentication and authorization per app'
+    ]
+  },
+  {
+    slug: 'trendlog.app',
+    title: 'Trendlog.app a personal data tracker using tags',
+    tags: ['typescript', 'framework 7', 'pwa', 'svelte'],
+    thumbnail: '/tracker-screenshot.png',
+    description: 'A progressive web app built on Framework 7 to track your personal data using tags. Recreating with a mobile-first approach from a proof-of-concept I created in 2017. Will be available to the general public.',
+    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRytJ_tRLu6CaCQIAGYak9P0',
+    headers: [
+      'Framework 7 progressive web app for mobile devices',
+      'Create entries using tags with autosuggested relations',
+      'Aggregated reporting based on tags selected',
+      'Custom data parsers allow extended data types'
     ]
   },
   {
@@ -67,34 +95,34 @@ const posts = [
       'Runs locally on streamers PC'
     ]
   },
-  {
-    slug: 'warehouse-deals',
-    title: 'Warehouse Deals',
-    tags: ['javascript', 'next.js', 'node.js', 'heroku', 'cheerio'],
-    thumbnail: '/warehouse-deals-screenshot.png',
-    description: 'An Amazon Product Price Scanner to watch for new and used deals by target price',
-    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRwTsubtXe0OR4bdswKL39F-',
-    headers: [
-      'Next.js application with Node.js API endpoints',
-      'Heroku Scheduler pings hourly for prices',
-      'Page scraping with cheerio',
-      'Text message alerting for target price'
-    ]
-  },
-  {
-    slug: 'markdown-content-api',
-    title: 'Markdown Content API',
-    tags: ['javascript', 'feathers js', 'node.js', 'next.js'],
-    thumbnail: '/markdown-content-api-screenshot.png',
-    description: 'A Markdown Content API as a Headless CMS for my portfolio site. Goal is to consume content into this site.',
-    playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRyDjp3JoiHvAudfRhalmrsg',
-    headers: [
-      'Feathers JS API backend connected to MongoDB',
-      'Next.js application for Content UI',
-      'Store data in Notebooks and Pages with nesting support',
-      'Serves HTML result from Markdown contents'
-    ]
-  },
+  // {
+  //   slug: 'warehouse-deals',
+  //   title: 'Warehouse Deals',
+  //   tags: ['javascript', 'next.js', 'node.js', 'heroku', 'cheerio'],
+  //   thumbnail: '/warehouse-deals-screenshot.png',
+  //   description: 'An Amazon Product Price Scanner to watch for new and used deals by target price',
+  //   playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRwTsubtXe0OR4bdswKL39F-',
+  //   headers: [
+  //     'Next.js application with Node.js API endpoints',
+  //     'Heroku Scheduler pings hourly for prices',
+  //     'Page scraping with cheerio',
+  //     'Text message alerting for target price'
+  //   ]
+  // },
+  // {
+  //   slug: 'markdown-content-api',
+  //   title: 'Markdown Content API',
+  //   tags: ['javascript', 'feathers js', 'node.js', 'next.js'],
+  //   thumbnail: '/markdown-content-api-screenshot.png',
+  //   description: 'A Markdown Content API as a Headless CMS for my portfolio site. Goal is to consume content into this site.',
+  //   playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRyDjp3JoiHvAudfRhalmrsg',
+  //   headers: [
+  //     'Feathers JS API backend connected to MongoDB',
+  //     'Next.js application for Content UI',
+  //     'Store data in Notebooks and Pages with nesting support',
+  //     'Serves HTML result from Markdown contents'
+  //   ]
+  // },
   // {
   //   slug: 'codepow',
   //   title: 'CodePow.io Component Library',

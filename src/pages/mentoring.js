@@ -17,7 +17,7 @@ export default function Home() {
         </section>
         <section className="articles-fullpage">
           <h2>Need help with code or debugging?</h2>
-          <p>JavaScript, React, Typescript, Architecture, or other Software Engineering topics are my area of expertise. Let me know what kind of issue you're having and we can hop on a call if I can help. I won't code for you since my goal is to train you to handle problems yourself. We can pair program or talk the problem out.</p>
+          <p>JavaScript, React, TypeScript, Architecture, or other Software Engineering topics are my area of expertise. Let me know what kind of issue you're having and we can hop on a call if I can help. I won't code for you since my goal is to train you to handle problems yourself. We can pair program or talk the problem out.</p>
           <h2>Need help with software engineering career or interview preparation?</h2>
           <p>If you want to switch companies or find your first job, I can help you refresh your resume and prepare for interviews with practice drills you may experience during interviews. I've worked with hundreds of bootcamp students finding their first jobs, as well as mid-to-senior level developers needing to quickly prepare for upcoming interviews. If you're looking for a promotion, I can help you discover the next-level skills your boss is looking for.</p>
           <h2>How much does it cost?</h2>
