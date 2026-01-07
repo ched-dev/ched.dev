@@ -70,7 +70,7 @@ export default function MainNav() {
       </div>
       <section className="main-footer">
         <span className="main-logo" aria-hidden="true">
-          <img src="/avatar-cheddev-spaced.png" />
+          <img src="/avatar-3-cropped-full.png" />
         </span>
         <nav className="main-social-links">
           <a
