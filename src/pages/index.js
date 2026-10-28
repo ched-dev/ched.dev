@@ -12,7 +12,7 @@ export default function Home() {
         {/* <i className="homepage-icon fa fa-code" /> */}
         <h1 className="main-home-title"><span>Live coding web apps with <br/>front end technologies</span></h1>
         <p className="main-home-tags">
-          <Tags tags={["javascript", "typescript", "react", "svelte", "tailwind css", "redwoodjs", "directus.io", "apis"]} />
+          <Tags tags={["javascript", "typescript", "react", "svelte", "tailwind css", "redwoodjs", "directus.io", "apis", "tauri", "pocketbase", "ai agents"]} />
         </p>
         <nav className="main-extended-social-links">
           <a
