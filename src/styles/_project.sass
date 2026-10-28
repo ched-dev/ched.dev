@@ -1,138 +1,59 @@
-$image-gap: 20rem
-$image-gap-space: 2rem
-$image-gap-plus: $image-gap + $image-gap-space
-
-$header-size: 9rem
+$gallery-width: 26rem
+$gallery-width-narrow: 20rem
+$card-background: lighten($background-color, 4%)
 
 .project-grid
   display: grid
   grid-template-columns: 1fr
-  gap: 1rem
+  gap: 2.5rem
   @media (max-width: $breakpoint-md)
-    padding-top: 5rem
-  //   grid-template-columns: 1fr
-  // @media (max-width: $breakpoint-lg)
-  //   grid-template-columns: 1fr 1fr
+    gap: 2rem
+    padding-left: 0
+    padding-right: 0
+
 .project-card
-  position: relative
   display: flex
   flex-direction: column
-  justify-items: start
-  max-width: 40rem
-  margin: 3rem $image-gap 2rem 2rem
-  // background: $brand-secondary-darkened
-  border: dashed 2px $brand-tertiary
-  border-radius: 4px
-  @media (max-width: $breakpoint-lg)
-    margin-left: 2rem
-    margin-right: 2rem
-    border-width: 1px
+  max-width: 72rem
+  background: $card-background
+  border-left: solid 4px $brand-secondary-darkened
+  border-radius: 6px
+  padding: 1.6rem 2rem 2rem
   @media (max-width: $breakpoint-md)
-    margin-left: auto
-    margin-right: auto
-    margin-bottom: $header-size
+    border-radius: 0
+    padding: 1.2rem 1rem 1.6rem
+
 .project-card-header
   display: flex
   flex-direction: column
-  margin: -5.5rem 0 0 0
-  padding: 1.4rem 1rem
-  @media (max-width: $breakpoint-lg)
-    padding: 1.4rem 0.2rem
-    margin-top: -$header-size
+  margin-bottom: 1.2rem
 .project-card-title
-  grid-area: title
-  position: relative
   font-family: 'Zilla Slab', serif
-  margin: 0
-.project-card-actions
-  grid-area: actions
-  // font-family: 'Zilla Slab', cursive
-  font-family: 'Economica', sans-serif
-  text-transform: uppercase
-  font-size: 1.2rem
-  color: $brand-tertiary !important
-  margin-bottom: -1.2rem
-  background: $background-color !important
-  padding: 0.5rem 2rem 0.5rem
-.project-card-image
-  position: absolute
-  top: 0
-  right: (-$image-gap)
-  width: $image-gap-plus
-  margin-top: 2rem
-  // border: solid 10px $brand-tertiary
-  padding: 5px
-  background-color: $background-color
-  border: dashed 2px $brand-secondary
-  border-radius: 4px
+  margin: 0 0 0.2rem
+
+.project-card-content
+  display: grid
+  grid-template-columns: minmax(0, 1fr) $gallery-width
+  gap: 2rem
+  align-items: start
   @media (max-width: $breakpoint-lg)
-    display: none
-    border-width: 1px
+    grid-template-columns: minmax(0, 1fr) $gallery-width-narrow
+    gap: 1.5rem
   @media (max-width: $breakpoint-md)
-    position: static
-    display: block
-    width: 120%
-    margin-left: -10%
-.project-card-image-top
-  margin-top: -2rem
-  @media (max-width: $breakpoint-sm)
-    margin-top: 2rem
+    grid-template-columns: minmax(0, 1fr)
+    .project-gallery
+      order: -1
+      min-width: 0
+
 .project-card-description
-  // margin-top: 0
-  line-height: 1rem
-.project-card-body
-  padding: 0 4rem 2rem 2rem
-  @media (max-width: $breakpoint-sm)
-    padding-left: 1rem
-    padding-right: 1rem
-.project-card-read-more:not([href])
-  cursor: default
-  .project-card-read-more-text
-    display: none
-  &::after
-    content: 'Coming Soon'
-    text-transform: uppercase
-    opacity: 0.8
-// .project-card
-//   display: flex
-//   justify-items: start
-//   max-width: 60rem
-//   margin: 2rem 2rem 2rem $image-gap
-//   background: $brand-secondary
-//   @media (max-width: $breakpoint-lg)
-//     margin: 0
-// .project-card-header
-//   display: flex
-//   flex-direction: column
-//   margin: -3.1rem ($image-gap-space * 2) 0 (-$image-gap)
-//   padding: 1.4rem 1rem
-//   width: $image-gap
-//   .content-tags, .project-card-title
-//     width: 60rem
-// .project-card-title
-//   grid-area: title
-//   position: relative
-//   font-family: 'Zilla Slab', serif
-//   margin: 0
-// .project-card-actions
-//   grid-area: actions
-//   // font-family: 'Zilla Slab', cursive
-//   font-family: 'Economica', sans-serif
-//   text-transform: uppercase
-//   font-size: 1.2rem
-//   color: $brand-tertiary !important
-//   margin-bottom: -1.2rem
-//   background: $background-color !important
-//   padding: 0.5rem 2rem 0.5rem
-// .project-card-image
-//   width: $image-gap-plus
-//   margin-top: 1rem
-//   border: solid 10px $brand-tertiary
-//   @media (max-width: $breakpoint-sm)
-//     width: 100%
-// .project-card-body
-//   padding: 0 0 2rem 2rem
-//   align-self: center
+  margin-top: 0
+.project-card-deep-links
+  margin: 0 0 1.4rem
+  padding-left: 1.2rem
+  li
+    line-height: 1.5rem
+    margin-bottom: 0.3rem
+
 .project-card-read-more
   font-size: 1rem
   text-decoration: none
@@ -156,3 +77,136 @@ $header-size: 9rem
     font-size: 1.2rem
   + .project-card-read-more
     margin-top: 0.4rem
+.project-card-read-more:not([href])
+  cursor: default
+  .project-card-read-more-text
+    display: none
+  &::after
+    content: 'Coming Soon'
+    text-transform: uppercase
+    opacity: 0.8
+
+// Gallery
+.project-gallery
+  display: flex
+  flex-direction: column
+  gap: 0.5rem
+.project-gallery-primary, .project-gallery-thumb
+  position: relative
+  display: block
+  width: 100%
+  padding: 0
+  border: solid 1px rgba(255, 255, 255, 0.12)
+  border-radius: 4px
+  background: $background-color
+  overflow: hidden
+  cursor: zoom-in
+  transition: border-color 150ms ease-in-out
+  img
+    display: block
+    width: 100%
+    height: auto
+  &:hover, &:focus-visible
+    border-color: $brand-secondary
+    outline: none
+.project-gallery-expand
+  position: absolute
+  right: 0.5rem
+  bottom: 0.5rem
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 2rem
+  height: 2rem
+  border-radius: 4px
+  background: rgba(0, 0, 0, 0.6)
+  color: white
+  font-size: 0.9rem
+  opacity: 0.85
+.project-gallery-thumbs
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  gap: 0.5rem
+  @media (max-width: $breakpoint-md)
+    display: flex
+    overflow-x: auto
+    padding-bottom: 0.3rem
+    -webkit-overflow-scrolling: touch
+    .project-gallery-thumb
+      flex: 0 0 7rem
+.project-gallery-thumb img
+  aspect-ratio: 16 / 10
+  object-fit: cover
+  object-position: top left
+
+// Lightbox
+.lightbox
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 100
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 3rem 5rem
+  background: rgba(10, 10, 10, 0.97)
+  @media (max-width: $breakpoint-md)
+    padding: 3.5rem 0.5rem 4.5rem
+.lightbox-figure
+  display: flex
+  flex-direction: column
+  align-items: center
+  max-width: 100%
+  max-height: 100%
+  margin: 0
+.lightbox-image
+  max-width: 100%
+  max-height: calc(100vh - 9rem)
+  object-fit: contain
+  border-radius: 4px
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7)
+  @media (max-width: $breakpoint-md)
+    max-height: calc(100vh - 11rem)
+.lightbox-caption
+  margin-top: 0.8rem
+  padding: 0 1rem
+  color: $brand-tertiary
+  text-align: center
+.lightbox-count
+  display: inline-block
+  margin-left: 1rem
+  opacity: 0.6
+  white-space: nowrap
+.lightbox-close, .lightbox-nav
+  position: absolute
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 2.8rem
+  height: 2.8rem
+  border: none
+  border-radius: 50%
+  background: rgba(255, 255, 255, 0.1)
+  color: white
+  font-size: 1.2rem
+  cursor: pointer
+  transition: background 150ms ease-in-out
+  &:hover, &:focus-visible
+    background: rgba(255, 255, 255, 0.25)
+    outline: none
+.lightbox-close
+  top: 1rem
+  right: 1rem
+.lightbox-nav
+  top: 50%
+  transform: translateY(-50%)
+  @media (max-width: $breakpoint-md)
+    top: auto
+    bottom: 1rem
+    transform: none
+.lightbox-nav-prev
+  left: 1rem
+.lightbox-nav-next
+  right: 1rem

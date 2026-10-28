@@ -1,15 +1,30 @@
+import { useState } from 'react'
 import Layout from 'src/components/Layout'
 import Footer from 'src/components/Footer'
 import MainNav from 'src/components/MainNav'
 import Tags from 'src/components/Tags'
+import ProjectGallery from 'src/components/ProjectGallery'
+import Lightbox from 'src/components/Lightbox'
 import { getPopularTags } from 'src/utils/posts'
 
+// Each project can have `images` (a gallery; the first one is the main shot)
+// or a single legacy `thumbnail`. Gallery images live in public/projects/<slug>/.
 const posts = [
   {
     slug: 'kataban',
     title: 'Kataban: A Mac kanban board for AI coding agents',
     tags: ['typescript', 'react', 'tauri', 'pocketbase', 'ai agents', 'mcp'],
-    thumbnail: '/kataban-screenshot.png',
+    images: [
+      { src: '/projects/kataban/board.png', alt: 'Kataban board with task columns', caption: 'The board: see the whole project at a glance' },
+      { src: '/projects/kataban/plan-review.png', alt: 'Plan review panel with inline comments', caption: 'Plan review: read and comment on the plan before it runs' },
+      { src: '/projects/kataban/changes.png', alt: 'Changes panel with a file tree and line-level diff', caption: 'Changes: review every line, then stash, sync, or commit' },
+      { src: '/projects/kataban/worktrees.png', alt: 'Project settings worktrees tab', caption: 'Worktrees: every card gets its own branch and worktree' },
+      { src: '/projects/kataban/column-settings.png', alt: 'Column settings dialog', caption: 'Columns: hotkey, WIP limit, permission mode, and arrival prompt' },
+      { src: '/projects/kataban/mcp.png', alt: 'A follow-up request arriving through the MCP server', caption: 'MCP: any MCP client can read and write your cards' },
+      { src: '/projects/kataban/files.png', alt: 'Files view with file tree and editor', caption: 'Files: browse and edit project files in a built-in editor' },
+      { src: '/projects/kataban/pinned.png', alt: 'Pinned tasks strip above the status bar', caption: 'Pinned tasks follow you across every project' },
+      { src: '/projects/kataban/projects.png', alt: 'Projects list showing several repos', caption: 'Projects: point Kataban at any local folder' }
+    ],
     description: 'A native macOS kanban board where every card is an AI agent session. Review the plan, then run Claude Code, Codex, or OpenCode in parallel on separate git worktrees.',
     website: 'https://kataban.app',
     headers: [
@@ -24,10 +39,18 @@ const posts = [
     slug: 'productbase',
     title: 'ProductBase: A SaaS starter built on PocketBase',
     tags: ['go', 'pocketbase', 'react', 'typescript', 'stripe', 'railway', 'saas'],
-    // TODO: add public/productbase-screenshot.png (landscape PNG, ~1600-2200px wide, under ~600KB) then uncomment
-    // thumbnail: '/productbase-screenshot.png',
+    images: [
+      { src: '/projects/productbase/landing.png', alt: 'ProductBase landing page', caption: 'Landing page: ship your idea, not the boring parts' },
+      { src: '/projects/productbase/admin-overview.png', alt: 'System Admin overview with sections for users, workspaces, billing, automations, email, notifications, files, and settings', caption: 'System Admin: every section of the platform in one place' },
+      { src: '/projects/productbase/users.png', alt: 'Users list with public registration toggle', caption: 'Users: registrations, waitlist, feedback, and lockouts' },
+      { src: '/projects/productbase/automations.png', alt: 'Automation flows list with event, schedule, and webhook triggers', caption: 'Automations: event, schedule, and webhook triggered flows' },
+      { src: '/projects/productbase/email-templates.png', alt: 'Email templates list', caption: 'Email templates: code-defined templates with saved variables' },
+      { src: '/projects/productbase/notifications.png', alt: 'Notification templates list', caption: 'Notifications: one template drives in-app and email channels' },
+      { src: '/projects/productbase/billing.png', alt: 'Billing overview with customers, subscriptions, payments, and invoices', caption: 'Billing: Stripe subscriptions and products, as deployed for Kataban' },
+      { src: '/projects/productbase/variables.png', alt: 'System settings variables list', caption: 'Settings: typed variables, secrets, and backups' }
+    ],
     description: 'A product application with authentication, system admin, automations, email, billing, and deployment built in. Fork it and focus on what makes your product unique. Powers the backend for Kataban.',
-    // website: 'https://productbase.dev', // enable once the domain is live
+    website: 'https://productbase.up.railway.app/',
     headers: [
       'PocketBase as a Go framework with SQLite and JS hooks',
       'React and Mantine admin with multi-tenant workspaces',
@@ -40,8 +63,10 @@ const posts = [
     slug: 'medialog',
     title: 'Medialog: A media manager for Flickr libraries',
     tags: ['typescript', 'redwoodjs', 'prisma', 'react', 'mantine', 'inngest', 'web sockets'],
-    // TODO: add public/medialog-screenshot.png (landscape PNG, ~1600-2200px wide, under ~600KB) then uncomment
-    // thumbnail: '/medialog-screenshot.png',
+    // TODO: add screenshots to public/projects/medialog/ (landscape PNG, ~1600-2200px wide, under ~600KB) then fill in
+    // images: [
+    //   { src: '/projects/medialog/dashboard.png', alt: 'Medialog dashboard media grid', caption: '' }
+    // ],
     description: 'Syncs your Flickr photos, videos, albums, and EXIF data into Postgres with a dashboard to browse, filter, and search your library by date, tag, album, and camera.',
     // website: 'https://medialog.ched.dev', // enable once the deployment is confirmed live
     headers: [
@@ -56,8 +81,16 @@ const posts = [
     slug: 'unboxed-deals',
     title: 'Unboxed Deals an Amazon Warehouse deals site',
     tags: ['typescript', 'redwoodjs', 'prisma', 'graphql', 'node.js'],
-    thumbnail: '/unboxed-deals-screenshot.png',
+    images: [
+      { src: '/projects/unboxed-deals/product-details.png', alt: 'Product details page with price history chart', caption: 'Product details: new vs used price over time' },
+      { src: '/projects/unboxed-deals/home.png', alt: 'Unboxed Deals home page with recommendations by product category', caption: 'Home: watch for new or used deals from Amazon Warehouse' },
+      { src: '/projects/unboxed-deals/all-deals.png', alt: 'All deals list with new price, used price, and deal score', caption: 'All deals: new vs used price with a Deal Score for every item' },
+      { src: '/projects/unboxed-deals/price-charts.png', alt: 'Price history and deal score charts with a hover tooltip', caption: 'Price history: hover any day to see the deal at that time' },
+      { src: '/projects/unboxed-deals/watch-list.png', alt: 'Watch list with alert thresholds per product', caption: 'Watch list: alerts by price, percent off, or Deal Score' },
+      { src: '/projects/unboxed-deals/watch-product.png', alt: 'Watch a product form taking an Amazon product URL', caption: 'Watch a product: paste any Amazon URL to start tracking it' }
+    ],
     description: 'A website for Amazon Warehouse deals on used and open boxed items. Running as a beta for the past year, I am currently hardening the product for public users in 2024.',
+    website: 'https://unboxed.deals',
     playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRyo_bPWNEcaKv-Sctm1iTOY',
     headers: [
       'RedwoodJS app with TypeScript, Prisma, GraphQL, and React',
@@ -217,7 +250,14 @@ const posts = [
 
 const popularTags = getPopularTags(posts)
 
+const getImages = (post) => {
+  if (post.images && post.images.length) return post.images
+  if (post.thumbnail) return [{ src: post.thumbnail, alt: post.title }]
+  return []
+}
+
 export default function Projects() {
+  const [lightbox, setLightbox] = useState(null)
 
   return (
     <Layout title="Code Projects">
@@ -226,19 +266,22 @@ export default function Projects() {
         <section className="section-header">
           <div className="sticky-header">
             <h1 className="section-title">Code Projects</h1>
-            <p className="section-subtitle">JavaScript Web Applications, Prototypes, and side projects</p>
+            <p className="section-subtitle">Desktop &amp; Web Applications, Prototypes, and side projects</p>
           </div>
           <p className="section-tags">Topics:<br/><Tags size="s" tags={popularTags.map(post => post.tag)} urlBase="/code/live-streams" /></p>
         </section>
         <section className="project-grid content-padded">
-          {posts.map(post => (
+          {posts.map(post => {
+            const images = getImages(post)
+
+            return (
             <article key={post.slug} className="project-card">
               <header className="project-card-header">
                 <h2 className="project-card-title">{post.title}</h2>
                 <Tags tags={post.tags} />
-                {post.thumbnail && <img src={post.thumbnail} className="project-card-image" />}
               </header>
-              
+
+              <div className="project-card-content">
               <section className="project-card-body">
                 <p className="project-card-description">{post.description}</p>
                 <ul className="project-card-deep-links">
@@ -276,9 +319,20 @@ export default function Projects() {
                   </a>
                 )}
               </section>
+              <ProjectGallery images={images} onOpen={index => setLightbox({ images, index })} />
+              </div>
             </article>
-          ))}
+            )
+          })}
         </section>
+        {lightbox && (
+          <Lightbox
+            images={lightbox.images}
+            index={lightbox.index}
+            onClose={() => setLightbox(null)}
+            onNavigate={index => setLightbox({ images: lightbox.images, index })}
+          />
+        )}
         <Footer />
       </main>
     </Layout>

@@ -5,14 +5,13 @@ import Tags from 'src/components/Tags'
 
 export default function Home() {
   return (
-    <Layout title="Live coding web apps &
-    products">
+    <Layout title="Desktop & web apps with AI coding agents">
       <MainNav />
       <main className="content-container homepage-container flexed-center">
         {/* <i className="homepage-icon fa fa-code" /> */}
-        <h1 className="main-home-title"><span>Live coding web apps with <br/>front end technologies</span></h1>
+        <h1 className="main-home-title"><span>Desktop & web apps <br/>with AI coding agents</span></h1>
         <p className="main-home-tags">
-          <Tags tags={["javascript", "typescript", "react", "svelte", "tailwind css", "redwoodjs", "directus.io", "apis", "tauri", "pocketbase", "ai agents"]} />
+          <Tags tags={["typescript", "react", "tauri", "rust", "go", "pocketbase", "redwoodjs", "prisma", "ai agents", "mcp", "railway"]} />
         </p>
         <nav className="main-extended-social-links">
           <a
@@ -37,18 +36,6 @@ export default function Home() {
             <p>
               <span>YouTube Channel</span>
               Archives of Live Streams and projects
-            </p>
-          </a>
-          <a
-            href="https://twitter.com/ched_dev"
-            target="_blank"
-            rel="noopener noreferer"
-            title="Twitter: @ched_dev"
-          >
-            <i className="fab fa-twitter" />
-            <p>
-              <span>Twitter Feed</span>
-              Tweets about code, streaming, and the like
             </p>
           </a>
           {/* <a

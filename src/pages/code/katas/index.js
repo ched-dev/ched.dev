@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import Layout from 'src/components/Layout'
 import Footer from 'src/components/Footer'
 import MainNav from 'src/components/MainNav'
 import Tags from 'src/components/Tags'
+import ProjectGallery from 'src/components/ProjectGallery'
+import Lightbox from 'src/components/Lightbox'
 import { getPopularTags } from 'src/utils/posts'
 
 const posts = [
@@ -25,7 +28,14 @@ const posts = [
 
 const popularTags = getPopularTags(posts)
 
-export default function Projects() {
+const getImages = (post) => {
+  if (post.images && post.images.length) return post.images
+  if (post.thumbnail) return [{ src: post.thumbnail, alt: post.title }]
+  return []
+}
+
+export default function Katas() {
+  const [lightbox, setLightbox] = useState(null)
 
   return (
     <Layout title="Code Projects">
@@ -39,14 +49,17 @@ export default function Projects() {
           <p className="section-tags">Topics:<br/><Tags size="s" tags={popularTags.map(post => post.tag)} urlBase="/code/live-streams" /></p>
         </section>
         <section className="project-grid content-padded">
-          {posts.map(post => (
+          {posts.map(post => {
+            const images = getImages(post)
+
+            return (
             <article key={post.slug} className="project-card">
               <header className="project-card-header">
                 <h2 className="project-card-title">{post.title}</h2>
                 <Tags tags={post.tags} />
-                {post.thumbnail && <img src={post.thumbnail} className="project-card-image project-card-image-top" />}
               </header>
-              
+
+              <div className="project-card-content">
               <section className="project-card-body">
                 <p className="project-card-description">{post.description}</p>
                 {post.website && (
@@ -77,9 +90,20 @@ export default function Projects() {
                   </a>
                 )}
               </section>
+              <ProjectGallery images={images} onOpen={index => setLightbox({ images, index })} />
+              </div>
             </article>
-          ))}
+            )
+          })}
         </section>
+        {lightbox && (
+          <Lightbox
+            images={lightbox.images}
+            index={lightbox.index}
+            onClose={() => setLightbox(null)}
+            onNavigate={index => setLightbox({ images: lightbox.images, index })}
+          />
+        )}
         <Footer />
       </main>
     </Layout>

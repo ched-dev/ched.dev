@@ -83,15 +83,6 @@ export default function MainNav() {
             <span className="sr-only">Github Repositories</span>
           </a>
           <a
-            href="https://twitter.com/ched_dev"
-            target="_blank"
-            rel="noopener noreferer"
-            title="Twitter: @ched_dev"
-          >
-            <i className="fab fa-twitter" />
-            <span className="sr-only">Twitter Feed</span>
-          </a>
-          <a
             href="https://www.youtube.com/@ched_dev"
             target="_blank"
             rel="noopener noreferer"
