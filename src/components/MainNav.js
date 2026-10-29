@@ -11,10 +11,11 @@ const mainNavLinks = [
     name: 'Code Projects',
     uri: '/code/projects'
   },
-  {
-    name: 'Code Katas',
-    uri: '/code/katas'
-  },
+  // Hidden from the nav; the page still renders at /code/katas
+  // {
+  //   name: 'Code Katas',
+  //   uri: '/code/katas'
+  // },
   // {
   //   name: 'Book Assessments',
   //   uri: '/books'
