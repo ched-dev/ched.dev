@@ -27,6 +27,7 @@ const posts = [
     ],
     description: 'A native macOS kanban board where every card is an AI agent session. Review the plan, then run Claude Code, Codex, or OpenCode in parallel on separate git worktrees.',
     website: 'https://kataban.app',
+    brief: 'https://github.com/ched-dev/kataban-app',
     headers: [
       'Tauri 2 desktop app built in React, TypeScript, and Rust',
       'Columns set their own permission mode, prompt, and hotkey',
@@ -51,6 +52,7 @@ const posts = [
     ],
     description: 'A product application with authentication, system admin, automations, email, billing, and deployment built in. Fork it and focus on what makes your product unique. Powers the backend for Kataban.',
     website: 'https://productbase.up.railway.app/',
+    brief: 'https://github.com/ched-dev/productbase-template',
     headers: [
       'PocketBase as a Go framework with SQLite and JS hooks',
       'React and Mantine admin with multi-tenant workspaces',
@@ -59,24 +61,24 @@ const posts = [
       'One-click deploy on Railway with versioned upgrades'
     ]
   },
-  {
-    slug: 'medialog',
-    title: 'Medialog: A media manager for Flickr libraries',
-    tags: ['typescript', 'redwoodjs', 'prisma', 'react', 'mantine', 'inngest', 'web sockets'],
-    // TODO: add screenshots to public/projects/medialog/ (landscape PNG, ~1600-2200px wide, under ~600KB) then fill in
-    // images: [
-    //   { src: '/projects/medialog/dashboard.png', alt: 'Medialog dashboard media grid', caption: '' }
-    // ],
-    description: 'Syncs your Flickr photos, videos, albums, and EXIF data into Postgres with a dashboard to browse, filter, and search your library by date, tag, album, and camera.',
-    // website: 'https://medialog.ched.dev', // enable once the deployment is confirmed live
-    headers: [
-      'RedwoodJS app with TypeScript, Prisma, and PostgreSQL',
-      'Background syncs on Inngest with live WebSocket progress',
-      'Search and filter by tags, albums, dates, and EXIF data',
-      'Grid and list views with a per-photo EXIF panel',
-      'Installable as a PWA with a Workbox service worker'
-    ]
-  },
+  // {
+  //   slug: 'medialog',
+  //   title: 'Medialog: A media manager for Flickr libraries',
+  //   tags: ['typescript', 'redwoodjs', 'prisma', 'react', 'mantine', 'inngest', 'web sockets'],
+  //   // TODO: add screenshots to public/projects/medialog/ (landscape PNG, ~1600-2200px wide, under ~600KB) then fill in
+  //   // images: [
+  //   //   { src: '/projects/medialog/dashboard.png', alt: 'Medialog dashboard media grid', caption: '' }
+  //   // ],
+  //   description: 'Syncs your Flickr photos, videos, albums, and EXIF data into Postgres with a dashboard to browse, filter, and search your library by date, tag, album, and camera.',
+  //   // website: 'https://medialog.ched.dev', // enable once the deployment is confirmed live
+  //   headers: [
+  //     'RedwoodJS app with TypeScript, Prisma, and PostgreSQL',
+  //     'Background syncs on Inngest with live WebSocket progress',
+  //     'Search and filter by tags, albums, dates, and EXIF data',
+  //     'Grid and list views with a per-photo EXIF panel',
+  //     'Installable as a PWA with a Workbox service worker'
+  //   ]
+  // },
   {
     slug: 'unboxed-deals',
     title: 'Unboxed Deals an Amazon Warehouse deals site',
@@ -89,8 +91,9 @@ const posts = [
       { src: '/projects/unboxed-deals/watch-list.png', alt: 'Watch list with alert thresholds per product', caption: 'Watch list: alerts by price, percent off, or Deal Score' },
       { src: '/projects/unboxed-deals/watch-product.png', alt: 'Watch a product form taking an Amazon product URL', caption: 'Watch a product: paste any Amazon URL to start tracking it' }
     ],
-    description: 'A website for Amazon Warehouse deals on used and open boxed items. Running as a beta for the past year, I am currently hardening the product for public users in 2024.',
+    description: 'Amazon Warehouse deals on used and open box items. Live since 2022 with 10 curated categories, 340+ tracked products, 95,000+ price points recorded, and 20,000+ deal alerts sent.',
     website: 'https://unboxed.deals',
+    brief: 'https://github.com/ched-dev/unboxed-deals-app',
     playlist: 'https://www.youtube.com/playlist?list=PLDPa5Jo5XXRyo_bPWNEcaKv-Sctm1iTOY',
     headers: [
       'RedwoodJS app with TypeScript, Prisma, GraphQL, and React',
@@ -266,7 +269,7 @@ export default function Projects() {
         <section className="section-header">
           <div className="sticky-header">
             <h1 className="section-title">Code Projects</h1>
-            <p className="section-subtitle">Desktop &amp; Web Applications, Prototypes, and side projects</p>
+            <p className="section-subtitle">Desktop &amp; web products, designed, built, and shipped</p>
           </div>
           <p className="section-tags">Topics:<br/><Tags size="s" tags={popularTags.map(post => post.tag)} urlBase="/code/live-streams" /></p>
         </section>
@@ -298,6 +301,15 @@ export default function Projects() {
                     target="_blank" rel="noopener no referrer"
                   >
                     <i className="fa fa-paperclip" /> <span className="project-card-read-more-text">View Website</span>
+                  </a>
+                )}
+                {post.brief && (
+                  <a
+                    className="project-card-read-more"
+                    href={post.brief}
+                    target="_blank" rel="noopener no referrer"
+                  >
+                    <i className="fa fa-file-alt" /> <span className="project-card-read-more-text">Technical Brief</span>
                   </a>
                 )}
                 {post.source && (
